@@ -13,7 +13,6 @@ app.use(cors());
 app.get('/', function (req, res) {
     res.send('init !');
 });
-app.get('/character',context(),getAllRickMortyCharacter,serialization);
 
 app.get('/summonername',context(),getSummonerIdWithName,serialization )
 

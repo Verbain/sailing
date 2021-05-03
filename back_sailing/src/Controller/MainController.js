@@ -25,28 +25,4 @@ function getSummonerIdWithName(req, res, next){
         });
 }
 
-/**
- *
- * @param req
- * @param res
- * @param next
- * @returns {Promise<AxiosResponse<any>>}
- */
-function getAllRickMortyCharacter(req, res, next){
-    return axios.get(`https://rickandmortyapi.com/api/character/`)
-        .then(r=> {
-            console.log(r);
-            res.return.response= r.data;
-            return next();
-        })
-        .catch(error => {
-            console.log(error);
-            res.return ={
-                code: error.response.status,
-                response: {error: error.message}
-            };
-            return next();
-        });
-}
-
-module.exports ={getSummonerIdWithName, getAllRickMortyCharacter}
+module.exports ={getSummonerIdWithName}
