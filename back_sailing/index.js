@@ -3,7 +3,6 @@ var app = express();
 const cors = require('cors');
 const Joi = require('joi');
 
-const validator = require('./src/decorators/Validator');
 const serialization = require('./src/response/Serializations');
 const context = require('./src/decorators/Context');
 const { getSummonerIdWithName, getAllRickMortyCharacter } = require('./src/Controller/MainController');
