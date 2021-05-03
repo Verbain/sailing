@@ -9,7 +9,8 @@ require('dotenv').config();
  * @returns {Promise<AxiosResponse<any>>}
  */
 function getSummonerIdWithName(req, res, next){
-    return axios.get(`${process.env.URL}/lol/summoner/v4/summoners/by-name/verbaintim`,{headers: {
+    console.log(req.params.username);
+    return axios.get(`${process.env.URL}/lol/summoner/v4/summoners/by-name/${req.params.username}`,{headers: {
         'X-Riot-Token': `${process.env.API_KEY}`}})
         .then(r=> {
             console.log(r);
