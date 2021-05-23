@@ -10,6 +10,7 @@ const { getSummonerIdWithName, getMatchId, getMatchResult} = require('./src/Cont
 const playerController = require('./src/Controller/playerController');
 const teamController = require('./src/Controller/teamController');
 const gameController = require('./src/Controller/gameController');
+const teamCompositionController = require('./src/Controller/teamCompositionController');
 
 //cron.schedule('*/5 * * * * * ', ()=>{
 //    console.log("cron schedule")
@@ -45,6 +46,13 @@ app.post('/newGame',gameController.createGame);
 app.post('/updateGameID',gameController.updateGameID);
 app.post('/updateOpponent',gameController.updateGameOpponent);
 app.post('/updateResult',gameController.updateGameResult);
+//TEAMS COMPOSITION ROUTING
+app.get('/teamComposition',teamCompositionController.getAllPlayers);
+app.get('/teamComposition/:teamId',teamCompositionController.getPlayerInTeam);
+app.post('/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
+app.post('/addCaptain',teamCompositionController.newTeam);
+app.post('/updateStatus',teamCompositionController.updateStatus);
+
 
 app.listen(4000, function () {
     console.log("Application listening on port 4000 !");
