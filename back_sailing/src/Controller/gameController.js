@@ -65,7 +65,7 @@ class gameController{
         }
     }
     async getGame(req,res, gameID){
-        gameID = req.params.playerId
+        gameID = req.params.gameId
         try {
             await db.select().table('games').where({id: gameID}).then(function (ret){
                 res.status(201).json(ret);
