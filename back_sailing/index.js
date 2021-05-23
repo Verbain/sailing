@@ -40,7 +40,7 @@ app.post('/newTeam',teamController.createTeam);
 app.post('/updateTeamPicture',teamController.updateTeamPicture);
 //GAME ROUTING
 app.get('/games',gameController.getAllGames);
-app.get('/game/:gameID',gameController.getGame);
+app.get('/game/:gameId',gameController.getGame);
 app.post('/newGame',gameController.createGame);
 app.post('/updateGameID',gameController.updateGameID);
 app.post('/updateOpponent',gameController.updateGameOpponent);
