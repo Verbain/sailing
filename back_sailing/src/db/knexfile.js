@@ -4,9 +4,8 @@ module.exports = {
   developement: {
     client: 'postgresql',
     connection: {
-      database: 'sailing',
-      user:     'sailing',
-      password: 'sailing'
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false }
     },
     pool: {
       min: 2,
