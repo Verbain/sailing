@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const cron = require('node-cron');
+const path = require('path')
 //const bodyParser = require("body-parser");
 
 const serialization = require('./src/response/Serializations');
@@ -19,41 +20,36 @@ const teamCompositionController = require('./src/Controller/teamCompositionContr
 app.use(express.json());
 app.use(cors());
 
-
-app.get('/', function (req, res) {
-    res.send('init !');
-});
-
-app.get('/summonername/:username',context(),getSummonerIdWithName,serialization );
-app.get('/ingame/:nameid',context(),getMatchId,serialization );
-app.get('/result/:gameid',context(),getMatchResult,serialization );
+app.get('/api/summonername/:username',context(),getSummonerIdWithName,serialization );
+app.get('/api/ingame/:nameid',context(),getMatchId,serialization );
+app.get('/api/result/:gameid',context(),getMatchResult,serialization );
 //PLAYER ROUTING
-app.post('/newPlayer', playerController.createPlayer);
-app.post('/updateRiotID',playerController.updateRiotID);
-app.post('/updateProfilePicture',playerController.updateProfilePicture);
-app.post('/updateOpGg',playerController.updateOpGg);
-app.get('/players',playerController.getAllPlayers);
-app.get('/player/:playerId',playerController.getPlayer)
+app.post('/api/newPlayer', playerController.createPlayer);
+app.post('/api/updateRiotID',playerController.updateRiotID);
+app.post('/api/updateProfilePicture',playerController.updateProfilePicture);
+app.post('/api/updateOpGg',playerController.updateOpGg);
+app.get('/api/players',playerController.getAllPlayers);
+app.get('/api/player/:playerId',playerController.getPlayer)
 //TEAM ROUTING
-app.get('/teams',teamController.getAllTeams);
-app.get('/team/:teamId',teamController.getTeam);
-app.post('/newTeam',teamController.createTeam);
-app.post('/updateTeamPicture',teamController.updateTeamPicture);
+app.get('/api/teams',teamController.getAllTeams);
+app.get('/api/team/:teamId',teamController.getTeam);
+app.post('/api/newTeam',teamController.createTeam);
+app.post('/api/updateTeamPicture',teamController.updateTeamPicture);
 //GAME ROUTING
-app.get('/games',gameController.getAllGames);
-app.get('/game/:gameId',gameController.getGame);
-app.post('/newGame',gameController.createGame);
-app.post('/updateGameID',gameController.updateGameID);
-app.post('/updateOpponent',gameController.updateGameOpponent);
-app.post('/updateResult',gameController.updateGameResult);
+app.get('/api/games',gameController.getAllGames);
+app.get('/api/game/:gameId',gameController.getGame);
+app.post('/api/newGame',gameController.createGame);
+app.post('/api/updateGameID',gameController.updateGameID);
+app.post('/api/updateOpponent',gameController.updateGameOpponent);
+app.post('/api/updateResult',gameController.updateGameResult);
 //TEAMS COMPOSITION ROUTING
-app.get('/teamComposition',teamCompositionController.getAllPlayers);
-app.get('/teamComposition/:teamId',teamCompositionController.getPlayerInTeam);
-app.post('/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
-app.post('/addCaptain',teamCompositionController.newTeam);
-app.post('/updateStatus',teamCompositionController.updateStatus);
+app.get('/api/teamComposition',teamCompositionController.getAllPlayers);
+app.get('/api/teamComposition/:teamId',teamCompositionController.getPlayerInTeam);
+app.post('/api/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
+app.post('/api/addCaptain',teamCompositionController.newTeam);
+app.post('/api/updateStatus',teamCompositionController.updateStatus);
 
-
+app.use(express.static(path.join(__dirname, '..', 'front_sailing', 'build')));
 app.listen(4000, function () {
     console.log("Application listening on port 4000 !");
 });
