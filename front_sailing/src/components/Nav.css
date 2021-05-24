@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #000;
+    height: 60px ;
+    width: 100%;
+    position: fixed;
+
+}
+
+.nav-item {
+    display: flex;
+}
+
+.nav-item a:hover  {
+    background-color: #282c34;
+}
+
+.nav-item-text {
+    display: flex;
+    text-decoration: none;
+    color : #ffff;
+    padding: 15px;
+}
+
+.nav-item-wallet{
+    color : #ffff;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
