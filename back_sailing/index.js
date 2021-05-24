@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const cron = require('node-cron');
-const path = require('path')
+const path = require('path');
+require('dotenv').config();
 //const bodyParser = require("body-parser");
 
 const serialization = require('./src/response/Serializations');
@@ -50,6 +51,6 @@ app.post('/api/addCaptain',teamCompositionController.newTeam);
 app.post('/api/updateStatus',teamCompositionController.updateStatus);
 
 app.use(express.static(path.join(__dirname, '..', 'front_sailing', 'build')));
-app.listen(4000, function () {
+app.listen(process.env.PORT, function () {
     console.log("Application listening on port 4000 !");
 });
