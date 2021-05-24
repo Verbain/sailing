@@ -1,8 +1,12 @@
 import React from 'react';
 import './Nav.css';
 import {Link} from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "./Logout-button";
+import LoginButton from "./Login-button";
 
 function Nav() {
+    const { isAuthenticated } = useAuth0();
     return(
         <nav class="navbar">
                 <div class="nav-item">
@@ -11,6 +15,7 @@ function Nav() {
                     <Link to='/createMatch' class="nav-item-text"> CRÉER UN MATCH </Link>
                     <Link to='/teams' class="nav-item-text"> MES ÉQUIPES </Link>
                     <div class="nav-item-wallet"> 100.00$ </div>
+                    <div className="justify-content-end"> {isAuthenticated ? <LogoutButton /> : <LoginButton />} </div>
 
                 </div>
         </nav>
