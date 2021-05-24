@@ -2,6 +2,14 @@ const axios = require('axios');
 const cron = require('node-cron');
 require('dotenv').config();
 
+//Ne jamais mettre ce log en clair
+let knex = require('knex')({
+    client: 'pg',
+    connection: {
+        connectionString: process.env.DATABASE_URL
+    }
+});
+
 /**
  *
  * @param req
