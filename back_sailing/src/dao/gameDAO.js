@@ -1,10 +1,11 @@
 const db = require('../db/db');
 
 class gameDAO{
-    async createGame(gameName, team){
+    async createGame(gameName, team, mise){
         const [ret] = await db('games').insert({
             game_name: gameName,
             team_1: team,
+            mise: mise,
             result: null,
             team_2: null,
             riot_game_id: null,

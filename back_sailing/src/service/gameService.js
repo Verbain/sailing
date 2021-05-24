@@ -2,8 +2,8 @@ const gameDAO = require('../dao/gameDAO');
 
 class gameService{
     createGame(gameDTO){
-        const {gameName, team} = gameDTO;
-        return gameDAO.createGame(gameName, team);
+        const {gameName, team, mise} = gameDTO;
+        return gameDAO.createGame(gameName, team, mise);
     }
     updateGameId(gameDTO){
         const {id,gameID} = gameDTO;
