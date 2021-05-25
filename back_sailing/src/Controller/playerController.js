@@ -29,6 +29,19 @@ class playerController{
             console.log(err);
         }
     }
+    async updateWallet1(req,res){
+        try {
+            const id = await playerService.updateWallet1(req.body);
+            res.status(201).json({
+                changeOn:id,
+                status:201,
+                response:"wallet incremented",
+                data:req.body
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
     async updateProfilePicture(req,res){
         try {
             const id = await playerService.updateProfilePicture(req.body);
