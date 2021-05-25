@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const cron = require('node-cron');
 const path = require('path');
 require('dotenv').config();
-//const bodyParser = require("body-parser");
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
+
 
 const serialization = require('./src/response/Serializations');
 const context = require('./src/decorators/Context');
@@ -18,6 +19,27 @@ const teamCompositionController = require('./src/Controller/teamCompositionContr
 //    console.log("cron schedule")
 //});
 
+
+// Authorization middleware. When used, the
+// Access Token must exist and be verified against
+// the Auth0 JSON Web Key Set
+const checkJwt = jwt({
+    // Dynamically provide a signing key
+    // based on the kid in the header and
+    // the signing keys provided by the JWKS endpoint.
+    secret: jwksRsa.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: `https://dev-cip8s-8m.eu.auth0.com/.well-known/jwks.json`
+    }),
+
+    // Validate the audience and the issuer.
+    audience: 'YOUR_API_IDENTIFIER',
+    issuer: [`https://dev-cip8s-8m.eu.auth0.com/`],
+    algorithms: ['RS256']
+});
+
 app.use(express.json());
 app.use(cors());
 
@@ -29,7 +51,7 @@ app.post('/api/newPlayer', playerController.createPlayer);
 app.post('/api/updateRiotID',playerController.updateRiotID);
 app.post('/api/updateProfilePicture',playerController.updateProfilePicture);
 app.post('/api/updateOpGg',playerController.updateOpGg);
-app.get('/api/players',playerController.getAllPlayers);
+app.get('/api/players',checkJwt,playerController.getAllPlayers);
 app.get('/api/player/:playerId',playerController.getPlayer)
 //TEAM ROUTING
 app.get('/api/teams',teamController.getAllTeams);
@@ -49,6 +71,7 @@ app.get('/api/teamComposition/:teamId',teamCompositionController.getPlayerInTeam
 app.post('/api/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
 app.post('/api/addCaptain',teamCompositionController.newTeam);
 app.post('/api/updateStatus',teamCompositionController.updateStatus);
+
 
 app.use(express.static(path.join(__dirname, '..', 'front_sailing', 'build')));
 app.listen(process.env.PORT, function () {
