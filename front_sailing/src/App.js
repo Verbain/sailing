@@ -1,10 +1,6 @@
 import './App.css';
-import Nav from './components/Nav';
-import Home from './components/Home';
-import Profil from './components/Profil';
-import CreateMatch from './components/CreateMatch';
-import Teams from './components/Teams';
-import Login from './components/Login';
+import { Nav, Home, Profile, CreateMatch, Teams, Login } from './components';
+
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
@@ -16,7 +12,7 @@ function App() {
           <div class="nav-space"></div>
           <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/profil" exact component={Profil}/>
+              <Route path="/profile" exact component={Profile}/>
               <Route path="/createMatch" exact component={CreateMatch}/>
               <Route path="/teams" exact component={Teams}/>
               <Route path="/login" exact component={Login}/>
