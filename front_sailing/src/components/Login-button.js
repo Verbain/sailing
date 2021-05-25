@@ -1,6 +1,8 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 const LoginButton = () => {
     const {loginWithRedirect } = useAuth0();
@@ -10,7 +12,6 @@ const LoginButton = () => {
         id="qsLoginBtn"
         variant="primary"
         className="btn-margin"
-        
         >
         Log In
         
