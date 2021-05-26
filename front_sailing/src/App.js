@@ -4,6 +4,7 @@ import ProtectedRoute from './auth/protected-route';
 import { useAuth0 } from "@auth0/auth0-react";
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import stripesTest from "./components/stripesTest";
 
 function App() {
   const { isLoading } = useAuth0();
@@ -21,6 +22,7 @@ function App() {
               <ProtectedRoute path="/profile" exact component={Profile}/>
               <ProtectedRoute path="/createMatch" exact component={CreateMatch}/>
               <ProtectedRoute path="/teams" exact component={Teams}/>
+              <ProtectedRoute path="/stripe" exact component={stripesTest}/>
               <Route path="/login" exact component={Login}/>
             </Switch>
         </header>
