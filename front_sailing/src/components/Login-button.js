@@ -13,7 +13,7 @@ const LoginButton = () => {
         variant="primary"
         className="btn-margin"
         >
-        Log In
+        Se connecter
         
         </Button>
     );

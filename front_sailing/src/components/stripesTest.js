@@ -5,21 +5,24 @@ import { loadStripe } from "@stripe/stripe-js";
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe("pk_test_51IucrnF5ZtIQrMXgiui58mFpgHqqXo6I4OyyQDAS3DXIo60oUMcaIpPlmvJXzklnisGydH9QHCH5iaaMaSSUlFTH00QrhV5Z1W");
 const ProductDisplay = ({ handleClick }) => (
-    <section>
-        <div className="product">
-            <img
-                src="https://www.pinclipart.com/picdir/middle/23-230268_riot-clipart-politics-riot-games-logo-png-transparent.png"
-                alt="."
-            />
-            <div className="description">
-                <h3>Sailing Coin</h3>
-                <h5>$1</h5>
+    <div class="div-shop">
+        <div class="div-shop-container">
+            <div class="div-shop-product">
+                <img
+                    src="https://www.pinclipart.com/picdir/big/53-537072_riot-games-fist-bump-clipart.png"
+                    alt="sailing-coin-logo"
+                    class="sailing-coin-img"
+                />
+                <div className="div-shop-description">
+                    <h3>1 SC</h3>
+                    <h5>1€</h5>
+                </div>
             </div>
+            <button type="button" id="checkout-button" role="link" onClick={handleClick}>
+                Acheter
+            </button>
         </div>
-        <button type="button" id="checkout-button" role="link" onClick={handleClick}>
-            Checkout
-        </button>
-    </section>
+    </div>
 );
 const Message = ({ message }) => (
     <section>
