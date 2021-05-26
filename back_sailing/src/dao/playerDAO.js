@@ -29,9 +29,8 @@ class playerDAO{
 
         return ret;
     }
-    async updateWallet1(){
-        const [ret] = await db('players').where({id: 1}).update({wallet: 1}).returning('id');
-
+    async updateWallet1(id , wallet){
+        const [ret] = await db('players').where({id: id}).update({wallet: wallet}).returning('id');
         return ret;
     }
 
