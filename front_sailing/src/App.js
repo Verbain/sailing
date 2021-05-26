@@ -7,11 +7,10 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import stripesTest from "./components/stripesTest";
 
 function App() {
-  /*
   const { isLoading } = useAuth0();
   if (isLoading){
     return <Loading/>;
-  } */
+  }
   return (
     <Router>
       <div className="App">
@@ -20,10 +19,10 @@ function App() {
           <div class="nav-space"></div>
           <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/profile" exact component={Profile}/>
-              <Route path="/createMatch" exact component={CreateMatch}/>
-              <Route path="/teams" exact component={Teams}/>
-              <Route path="/shop" exact component={stripesTest}/>
+              <ProtectedRoute path="/profile" exact component={Profile}/>
+              <ProtectedRoute path="/createMatch" exact component={CreateMatch}/>
+              <ProtectedRoute path="/teams" exact component={Teams}/>
+              <ProtectedRoute path="/shop" exact component={stripesTest}/>
             </Switch>
         </header>
       </div>
