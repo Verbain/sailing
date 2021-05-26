@@ -14,7 +14,7 @@ const LogoutButton = () => {
         className="btn-margin"
         
         >
-        Logout
+        Se déconnecter
         
         </Button>
     );
