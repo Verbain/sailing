@@ -1,9 +1,12 @@
 import React from 'react';
+import MatchForm from './MatchForm';
 
 function CreateMatch() {
+    
     return(
-        <p> match </p>
-
+        <div>
+            <MatchForm />
+        </div>
     );
 }
 
