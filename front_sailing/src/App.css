@@ -77,7 +77,7 @@
 /* ------------------ HOMEPAGE ------------------ */
 
 .div-home-0 {
-  height: 100vh;
+  height: (100vh - 65px);
 }
 
 .div-home-1 {
@@ -115,7 +115,7 @@
 
 .div-match-0 {
   background-color: #13151a;
-  height: 150px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,6 +124,12 @@
   padding: 50px;
 
 }
+
+.div-game-info{
+  display: flex;
+  font-size: 13px;
+}
+
 
 /* ------------------ SHOP ------------------ */
 
@@ -289,4 +295,30 @@
 .div-team-description {
   padding-top: 5px;
 
+}
+
+.teamcard {
+  background-color: #13151a;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px 0px 10px;
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px 2px #13151a;
+}
+
+.teamcard-info {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.teamcard-list{
+  list-style: none ;
+  font-size: medium;
+}
+
+.teamcard-list li {
+  margin-top: 5px;
 }
