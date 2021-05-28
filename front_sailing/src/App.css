@@ -275,12 +275,6 @@
   background-color: white;
 }
 
-.add-team button {
-  width: 100px;
-  text-decoration: none;
-
-}
-
 .add-team:hover {
   border-color: rgb(139, 139, 139);
   background-color: rgb(139, 139, 139);

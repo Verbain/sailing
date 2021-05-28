@@ -14,6 +14,8 @@ function Nav() {
                     <Link to='/createMatch' class="nav-item-text"> CRÉER UN MATCH </Link>
                     <Link to='/teams' class="nav-item-text"> MES ÉQUIPES </Link>
                     <Link to='/shop' class="nav-item-text"> BOUTIQUE</Link>
+                    <Link to='/teams/createTeam' class="nav-item-text"> new team</Link>
+
                     <div class="nav-item-wallet"> 100.00$ </div>
                     <div class="nav-button">
                     {isAuthenticated ? <LogoutButton /> : <LoginButton />} 
