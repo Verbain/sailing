@@ -1,34 +1,24 @@
+import logo from './logo.svg';
 import './App.css';
-import { Nav, Home, Profile, CreateMatch, Teams, Loading, CreateTeam } from './components';
-import ProtectedRoute from './auth/protected-route';
-import { useAuth0 } from "@auth0/auth0-react";
-
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import stripesTest from "./components/stripesTest";
 
 function App() {
-  const { isLoading } = useAuth0();
-  if (isLoading){
-    return <Loading/>;
-  }
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <Nav/>
-          <div class="nav-space"></div>
-          <Switch>
-              <Route path="/" exact component={Home}/>
-              <ProtectedRoute path="/profile" exact component={Profile}/>
-              <ProtectedRoute path="/createMatch" exact component={CreateMatch}/>
-              <Route path="/teams/createTeam" exact component={CreateTeam}/>
-              <ProtectedRoute path="/teams" exact component={Teams}/>
-              <ProtectedRoute path="/shop" exact component={stripesTest}/>
-            </Switch>
-        </header>
-      </div>
-    </Router>
-
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
