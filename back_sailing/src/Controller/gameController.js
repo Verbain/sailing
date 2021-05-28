@@ -1,6 +1,7 @@
 const gameService = require('../service/gameService');
 const db = require('../db/db');
-
+const { Sequelize } = require('sequelize')
+const sequelize = new Sequelize(process.env.DATABASE_URL)
 class gameController{
     async createGame(req, res){
         try {
@@ -70,6 +71,15 @@ class gameController{
             await db.select().table('games').where({id: gameID}).then(function (ret){
                 res.status(201).json(ret);
             });
+        } catch (err){
+            console.log(err);
+        }
+    }
+    async getAllGameWithTeamName(req,res){
+        try {
+            await db.select('games.id','teams.team_name','games.game_name','games.team_1','games.team_2').from('games').leftJoin(db.raw('teams ON games.team_1 = teams.id OR games.team_2 = teams.id')).then(function (ret){
+                res.status(201).json(ret);
+            })
         } catch (err){
             console.log(err);
         }

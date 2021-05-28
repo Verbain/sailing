@@ -63,6 +63,9 @@ app.post('/api/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
 app.post('/api/addCaptain',teamCompositionController.newTeam);
 app.post('/api/updateStatus',teamCompositionController.updateStatus);
 
+//TEST
+app.get('/api/teams_games',gameController.getAllGameWithTeamName);
+
 
 app.use(express.static(path.join(__dirname, '..', 'front_sailing', 'build')));
 app.listen(process.env.PORT, function () {
