@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
+import AddPlayer from './AddPlayer';
+import axios from "axios";
 
 function TeamCard(props) {
     const { team } = props;
+    
+    const[data, setData] = useState([]);
+    
+    useEffect(() => {
+        axios.get('/api/teams').then((res) => setData(res.data));
+
+    }, []);
 
     return(
         <div class="team">
@@ -11,9 +20,7 @@ function TeamCard(props) {
                 </div>
                 <div class="teamcard-list">
                     <li>
-                        {data.map((team) =>(
-                        <AddPlayer team={team} key={team.id} />
-                    ))}
+                        <AddPlayer team={team} />
                     </li>
                 </div>
             </div>

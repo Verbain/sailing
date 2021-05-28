@@ -18,7 +18,8 @@ class playerService{
         return playerDAO.updateOpGg(id,opGg)
     }
     updateWallet1(playerDTO){
-        return playerDAO.updateWallet1()
+        const {id,wallet} = playerDTO
+        return playerDAO.updateWallet1(id,wallet)
     }
 
 }

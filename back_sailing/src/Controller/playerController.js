@@ -87,6 +87,17 @@ class playerController{
             console.log(err);
         }
     }
+    async getPlayerByName(req,res, playerName){
+        playerName = req.params.playerName
+        try {
+            await db.select().table('players').where({pseudo: playerName}).then(function (ret){
+                res.status(201).json(ret);
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
+
 }
 
 module.exports = new playerController();
