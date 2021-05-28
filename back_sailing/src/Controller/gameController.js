@@ -1,7 +1,5 @@
 const gameService = require('../service/gameService');
 const db = require('../db/db');
-const { Sequelize } = require('sequelize')
-const sequelize = new Sequelize(process.env.DATABASE_URL)
 class gameController{
     async createGame(req, res){
         try {
