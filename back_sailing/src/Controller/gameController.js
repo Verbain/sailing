@@ -84,6 +84,21 @@ class gameController{
             console.log(err);
         }
     }
+    async getTeamNameByMatch(req,res,gameID){
+        gameID = req.params.gameId ;
+        console.log("DEPUIS LE BACK" + gameID)
+        try {
+            await db.select('games.id','teams.team_name','games.game_name','games.team_1','games.team_2','teams.id')
+                .from('games')
+                .leftJoin(db.raw('teams ON games.team_1 = teams.id OR games.team_2 = teams.id'))
+                .where('games.id', gameID)
+                .then(function (ret){
+                res.status(201).json(ret);
+            })
+        } catch (err){
+            console.log(err);
+        }
+    }
 }
 
 module.exports = new gameController();

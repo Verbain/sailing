@@ -1,5 +1,4 @@
 import React from 'react';
-import './TeamCard.css';
 
 function TeamCard() {
     return(
