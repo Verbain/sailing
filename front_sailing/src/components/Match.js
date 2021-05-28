@@ -12,7 +12,7 @@ function Match() {
     return(
         <div>
             {data.map((match)=>(
-                <MatchCard match={match} key={match.game_name}/>
+                <MatchCard match={match} key={match.id}/>
             ))}
         </div>
 

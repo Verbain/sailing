@@ -1,5 +1,5 @@
 import './App.css';
-import { Nav, Home, Profile, CreateMatch, Teams, Loading } from './components';
+import { Nav, Home, Profile, CreateMatch, Teams, Loading, CreateTeam } from './components';
 import ProtectedRoute from './auth/protected-route';
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -21,6 +21,7 @@ function App() {
               <Route path="/" exact component={Home}/>
               <ProtectedRoute path="/profile" exact component={Profile}/>
               <ProtectedRoute path="/createMatch" exact component={CreateMatch}/>
+              <Route path="/teams/createTeam" exact component={CreateTeam}/>
               <ProtectedRoute path="/teams" exact component={Teams}/>
               <ProtectedRoute path="/shop" exact component={stripesTest}/>
             </Switch>
