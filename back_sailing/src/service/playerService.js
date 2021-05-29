@@ -10,12 +10,12 @@ class playerService{
         return playerDAO.updateRiotID(id,riotID)
     }
     updateProfilePicture(playerDTO){
-        const {id,profilePicture} = playerDTO;
-            return playerDAO.updateProfilePicture(id,profilePicture)
+        const {pseudo,profilePicture} = playerDTO;
+            return playerDAO.updateProfilePicture(pseudo,profilePicture)
     }
     updateOpGg(playerDTO){
-        const {id,opGg} = playerDTO;
-        return playerDAO.updateOpGg(id,opGg)
+        const {pseudo,opGg} = playerDTO;
+        return playerDAO.updateOpGg(pseudo,opGg)
     }
     updateWallet1(playerDTO){
         const {id,wallet} = playerDTO

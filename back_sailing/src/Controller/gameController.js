@@ -84,7 +84,6 @@ class gameController{
     }
     async getTeamNameByMatch(req,res,gameID){
         gameID = req.params.gameId ;
-        console.log("DEPUIS LE BACK" + gameID)
         try {
             await db.select('games.id','teams.team_name','games.game_name','games.team_1','games.team_2','teams.id')
                 .from('games')
