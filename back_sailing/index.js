@@ -26,6 +26,7 @@ const {handleEvent,createCheckout} = require('./src/Controller/stripeController'
 app.use(express.json());
 app.use(cors());
 
+
 //STRIPES
 app.post('/create-checkout-session',createCheckout);
 /*Verify event came from STRIPRES*/

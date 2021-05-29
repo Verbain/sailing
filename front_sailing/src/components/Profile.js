@@ -1,21 +1,24 @@
-import React, { useState, useEffect, setText } from 'react';
+import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
 
 function Profile() {
     const { user } = useAuth0();
-    const { nickname, picture, email } = user;
+    const { name, picture, email } = user;
+    const { register, handleSubmit } = useForm();
 
-    const[data, setData] = useState([]);
-    
-    useEffect(() => {
-        axios.get('/api').then((res) => setData(res.data));
-    }, []);
+    const onSubmitOpGg = (data) => { 
+        const playerOpGg = { opGg : data.opGg, pseudo : name }
+        axios.post('/api/updateOpGg', playerOpGg);
 
-    function handleChange(event) {
-        setText(event.target.value)
+    }
+
+    const onSubmitSummonerName = (data) => {
+        const playerSummonerName = { pseudo : name, summonerName : data.summonerName}
+        axios.post('/api/newPlayer', playerSummonerName)
     }
     
+
     return(
         <div class="profile-container">
             <div class="div-profile-0">
@@ -28,16 +31,24 @@ function Profile() {
                 </div>
                 <div class="div-profile-2">
                     <div class="div-profile-info">
-                        <h2>Pseudo : {nickname}</h2>
+                        <h2>Pseudo : {name}</h2>
                     </div>
                     <div class="div-profile-info">
                         <h2>Adresse e-mail : {email}</h2>
                     </div>
                     <div class="div-profile-info">
-                        <label>op.gg : </label>
-                        <input type="text" value={data.op_gg} onChange={handleChange} />
-                            {data.op_gg}
-                            {console.log(data.op_gg)}
+                        <form onSubmit={handleSubmit(onSubmitOpGg)}>
+                            <label> opgg : </label>
+                            <input {...register("opGg")} />
+                            <button type="submit">Enregistrer</button>
+                        </form>
+                    </div>
+                    <div class="div-profile-info">
+                    <form onSubmit={handleSubmit(onSubmitSummonerName)}>
+                        <label> summoner name : </label>
+                        <input {...register("summonerName")} />
+                        <button type="submit">Enregistrer</button>
+                    </form>
                     </div>
                 </div>
             </div>
