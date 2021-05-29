@@ -1,20 +1,22 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
+import { useForm } from "react-hook-form";
+
 
 function Profile() {
     const { user } = useAuth0();
-    const { name, picture, email } = user;
+    const { nickname , picture, email } = user;
     const { register, handleSubmit } = useForm();
 
     const onSubmitOpGg = (data) => { 
-        const playerOpGg = { opGg : data.opGg, pseudo : name }
+        const playerOpGg = { opGg : data.opGg, pseudo : nickname }
         axios.post('/api/updateOpGg', playerOpGg);
 
     }
 
     const onSubmitSummonerName = (data) => {
-        const playerSummonerName = { pseudo : name, summonerName : data.summonerName}
+        const playerSummonerName = { pseudo : nickname, summonerName : data.summonerName}
         axios.post('/api/newPlayer', playerSummonerName)
     }
     
@@ -31,7 +33,7 @@ function Profile() {
                 </div>
                 <div class="div-profile-2">
                     <div class="div-profile-info">
-                        <h2>Pseudo : {name}</h2>
+                        <h2>Pseudo : {nickname}</h2>
                     </div>
                     <div class="div-profile-info">
                         <h2>Adresse e-mail : {email}</h2>

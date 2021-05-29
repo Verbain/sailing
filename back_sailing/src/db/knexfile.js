@@ -1,8 +1,8 @@
 // Update with your config settings.
 
 module.exports = {
-  developement: {
-    client: 'postgresql',
+  development: {
+    client: 'pg',
     connection: {
       connectionString: process.env.DATABASE_URL,
       ssl: { rejectUnauthorized: false }

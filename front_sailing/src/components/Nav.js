@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "./Logout-button";
 import LoginButton from "./Login-button";
+import axios from 'axios';
+import Wallet from './Wallet';
 
 function Nav() {
-    const { isAuthenticated } = useAuth0();
+    const { isAuthenticated, user } = useAuth0();
+    const { nickname } = user;
+    const [ data, setData] = useState([]);
+    
+    useEffect(() =>{
+        axios.get(`/api/playerByName/${nickname}`).then((res) => setData(res.data))
+
+    }, []);
+    
     return(
         <nav class="nav-bar">
                 <div class="nav-item">
@@ -14,9 +24,14 @@ function Nav() {
                     <Link to='/createMatch' class="nav-item-text"> CRÉER UN MATCH </Link>
                     <Link to='/teams' class="nav-item-text"> MES ÉQUIPES </Link>
                     <Link to='/shop' class="nav-item-text"> BOUTIQUE</Link>
-                    <Link to='/teams/createTeam' class="nav-item-text"> new team</Link>
+                    <Link to='/teams/createTeam' class="nav-item-text"> CRÉER UNE ÉQUIPE</Link>
 
-                    <div class="nav-item-wallet"> 100.00$ </div>
+                    <div class="nav-item-wallet"> 
+                        {data.map((wallet) =>(
+                            <Wallet wallet={wallet} key={wallet}/>
+                        ))} 
+                    </div>
+                    
                     <div class="nav-button">
                     {isAuthenticated ? <LogoutButton /> : <LoginButton />} 
                     </div>

@@ -58,6 +58,8 @@ app.post('/api/newGame',gameController.createGame);
 app.post('/api/updateGameID',gameController.updateGameID);
 app.post('/api/updateOpponent',gameController.updateGameOpponent);
 app.post('/api/updateResult',gameController.updateGameResult);
+app.get('/api/gamesWithOpponent',gameController.getAllGamesWithOpponent);
+app.get('/api/gamesWithoutOpponent',gameController.getAllGamesWithoutOpponent);
 //TEAMS COMPOSITION ROUTING
 app.get('/api/teamComposition',teamCompositionController.getAllPlayers);
 app.get('/api/teamComposition/:teamId',teamCompositionController.getPlayerInTeam);
