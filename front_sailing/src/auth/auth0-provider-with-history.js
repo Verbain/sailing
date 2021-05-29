@@ -1,10 +1,11 @@
 import React from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
+require('dotenv').config();
 
 const Auth0ProviderWithHistory = ({ children }) => {
-    const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-    const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-    const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
+    const domain = "dev-cip8s-8m.eu.auth0.com";
+    const clientId = "0SfFPnBEQRCjPIKXPYvq6Tes6jODPYOj";
+    const audience = "https://sailing.com/api";
 
     const DEFAULT_REDIRECT_CALLBACK = () =>
         window.history.replaceState({}, document.title, window.location.pathname);
