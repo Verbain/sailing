@@ -2,8 +2,8 @@ const playerDAO = require('../dao/playerDAO');
 
 class playerService{
     createPlayer(playerDTO){
-        const {pseudo, sumonerName, profilePicture, opGg} = playerDTO;
-        return playerDAO.createPlayer(pseudo,sumonerName,profilePicture,opGg);
+        const {pseudo, summonerName, profilePicture, opGg} = playerDTO;
+        return playerDAO.createPlayer(pseudo,summonerName,profilePicture,opGg);
     }
     updateRiotId(playerDTO){
         const {id,riotID} = playerDTO;
