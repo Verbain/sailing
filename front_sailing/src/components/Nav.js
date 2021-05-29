@@ -8,13 +8,20 @@ import Wallet from './Wallet';
 
 function Nav() {
     const { isAuthenticated, user } = useAuth0();
-    const { nickname } = user;
     const [ data, setData] = useState([]);
-    
+
+
+
+
     useEffect(() =>{
-        axios.get(`/api/playerByName/${nickname}`).then((res) => setData(res.data))
+        if (isAuthenticated === true) {
+            const {nickname} = user;
+            axios.get(`/api/playerByName/${nickname}`).then((res) => setData(res.data))
+        }
+
 
     }, []);
+
     
     return(
         <nav class="nav-bar">
