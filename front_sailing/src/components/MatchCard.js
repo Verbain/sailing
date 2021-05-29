@@ -8,7 +8,6 @@ function MatchCard(props) {
 
     useEffect(() => {
         axios.get(`/api/teamName/${match.id}`).then((res) => setData(res.data));
-        console.log(data);
     }, []);
 
 

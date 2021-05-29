@@ -21,7 +21,7 @@ function App() {
               <Route path="/" exact component={Home}/>
               <ProtectedRoute path="/profile" exact component={Profile}/>
               <ProtectedRoute path="/createMatch" exact component={CreateMatch}/>
-              <Route path="/teams/createTeam" exact component={CreateTeam}/>
+              <ProtectedRoute path="/teams/createTeam" exact component={CreateTeam}/>
               <ProtectedRoute path="/teams" exact component={Teams}/>
               <ProtectedRoute path="/shop" exact component={stripesTest}/>
             </Switch>

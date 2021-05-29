@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
+import mixpanel from 'mixpanel-browser';
+mixpanel.init('MIXPANEL_TOKEN');
+
 
 
 function MatchForm() {
@@ -8,6 +11,8 @@ function MatchForm() {
     const onSubmit = (data) => {
         axios.post('/api/newGame', data);
         window.location = "/"
+        mixpanel.track("Match created");
+
     } 
 
     return (

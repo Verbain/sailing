@@ -14,6 +14,7 @@ function TeamForm() {
         <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("teamName")} />
         <input {...register("teamPicture")} />
+        <input {...register("teamPicture")} />
         <button type="submit">Submit</button>
     </form>
     );

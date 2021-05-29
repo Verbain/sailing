@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 
@@ -6,24 +6,19 @@ import { useForm } from "react-hook-form";
 function AddPlayer(props) {
     const { team } = props;
     const { register, handleSubmit } = useForm();
-    const [ playerData, setData ] = useState([]);
 
 
-    const onSubmit = (data) => {
-        axios.get(`/api/playerByName/${data.pseudo}`).then((res) => setData(res.data))
-        console.log(playerData);
-        const playerID = { id_player : playerData.id_player, id_team : team.id}
-        console.log(playerID);
+    const onSubmit = (data) => { 
+        const playerID = { playerID : data.pseudo, teamID : team.id}
         axios.post('/api/addPlayerInTeam', playerID);
-        console.log(playerData);
 
     } 
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("pseudo")} />
-        <button type="submit">Submit</button>
-    </form>
+            <input {...register("pseudo")} />
+            <button type="submit">Submit</button>
+        </form>
     );
 }
 
