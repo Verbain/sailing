@@ -1,5 +1,8 @@
 const playerService = require('../service/playerService');
 const db = require('../db/db');
+require('dotenv').config();
+const Mixpanel = require('mixpanel');
+const mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN);
 
 class playerController{
     async createPlayer(req, res){
@@ -10,7 +13,8 @@ class playerController{
                 status:201,
                 response:"player ADD",
                 data:req.body
-            });
+            })
+            mixpanel.track('new player created');
         } catch (err){
             console.error(err);
         }

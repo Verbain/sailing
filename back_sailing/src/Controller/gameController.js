@@ -1,5 +1,9 @@
 const gameService = require('../service/gameService');
 const db = require('../db/db');
+require('dotenv').config();
+const Mixpanel = require('mixpanel');
+const mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN);
+
 class gameController{
     async createGame(req, res){
         try {

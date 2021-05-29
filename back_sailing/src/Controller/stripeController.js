@@ -1,6 +1,9 @@
 const stripe = require('stripe')('sk_test_51IucrnF5ZtIQrMXg3TnVTpqR1MXnSVdG78vMOzc9ScXDYZRDvJIF8i889WhLpRBakLaiLfaJVISXOUCZcwr2O2Gz00xuVLBo9h');
 const endpointSecret = 'whsec_9FepNdGrQ8oRYRjRuX9nhu1AXYEkKNXY';
 const axios = require('axios');
+require('dotenv').config();
+const Mixpanel = require('mixpanel');
+const mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN);
 
 async function createCheckout (req, res) {
     const session = await stripe.checkout.sessions.create({
@@ -38,7 +41,7 @@ const fulfillOrder = async (session) => {
             .catch(error =>{
                 console.log(error);
             })
-
+    mixpanel.track("ACHAT DE SAILING COIN",session);
     console.log("Fulfilling order", session);
 }
 function handleEvent (request, response)  {
