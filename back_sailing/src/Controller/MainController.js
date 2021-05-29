@@ -1,6 +1,9 @@
 const axios = require('axios');
 const cron = require('node-cron');
 require('dotenv').config();
+const Mixpanel = require('mixpanel');
+const mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN);
+
 
 //Ne jamais mettre ce log en clair
 let knex = require('knex')({

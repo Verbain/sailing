@@ -19,13 +19,13 @@ class playerDAO{
 
         return ret;
     }
-    async updateProfilePicture(id, profilePicture){
-        const [ret] = await db('players').where({id: id}).update({profile_picture: profilePicture}).returning('id');
+    async updateProfilePicture(pseudo, profilePicture){
+        const [ret] = await db('players').where({pseudo: pseudo}).update({profile_picture: profilePicture}).returning('id');
 
         return ret;
     }
-    async updateOpGg(id, opGg){
-        const [ret] = await db('players').where({id: id}).update({op_gg: opGg}).returning('id');
+    async updateOpGg(pseudo, opGg){
+        const [ret] = await db('players').where({pseudo: pseudo}).update({op_gg: opGg}).returning('id');
 
         return ret;
     }

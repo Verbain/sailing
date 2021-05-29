@@ -1,5 +1,8 @@
 const teamCompositionService = require('../service/teamCompositionService');
 const db = require('../db/db');
+require('dotenv').config();
+const Mixpanel = require('mixpanel');
+const mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN);
 
 class teamCompositionController{
     async newTeam(req, res){
@@ -24,7 +27,8 @@ class teamCompositionController{
                 status:201,
                 response:"player add",
                 data:req.body
-            });
+            })
+            mixpanel.track("player added in team");
         } catch (err){
             console.error(err);
         }

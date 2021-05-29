@@ -3,6 +3,7 @@ import axios from "axios";
 
 function MatchCard(props) {
     const { match } = props;
+    /*ESSAYER DE RECUPERER LE NOM DES EQUIPES*/
     let[data, setData] = useState([]);
 
     useEffect(() => {
@@ -16,7 +17,7 @@ function MatchCard(props) {
             <div class="div-game-info"> "{match.game_name}" | Mise : {match.mise} SC</div>
             <div class="div-match-0">
                 <div class="div-match-1">
-                    {data.team_name}
+                    {match.team_1}
                 </div>
                 <div class="div-match-2">
                     VS
