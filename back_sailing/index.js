@@ -73,7 +73,7 @@ app.get('/api/teams_games',gameController.getAllGameWithTeamName);
 app.get('/api/teamName/:gameId',gameController.getTeamNameByMatch);
 
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '..', 'front_sailing', 'build')));
 app.listen(process.env.PORT, function () {
     console.log("Application listening on port 4000 !");
 });
