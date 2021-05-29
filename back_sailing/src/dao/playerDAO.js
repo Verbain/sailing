@@ -1,10 +1,10 @@
 const db = require('../db/db');
 
 class playerDAO{
-    async createPlayer(pseudo, sumonerName, opGg, profilePicture){
+    async createPlayer(pseudo, summonerName, opGg, profilePicture){
         const [ret] = await db('players').insert({
             pseudo: pseudo,
-            sumoner_name: sumonerName,
+            summoner_name: summonerName,
             wallet: 0,
             riot_accoumpt_id: null,
             profile_picture: profilePicture,

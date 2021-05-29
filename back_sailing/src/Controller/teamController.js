@@ -1,10 +1,11 @@
-const playerService = require('../service/teamService');
+const teamService = require('../service/teamService');
+const teamCompositionService= require('../service/teamCompositionService');
 const db = require('../db/db');
 
 class teamController{
     async createTeam(req, res){
         try {
-            const id = await playerService.createPlayer(req.body);
+            const id = await teamService.createPlayer(req.body);
             res.status(201).json({
                 id:id,
                 status:201,
@@ -17,7 +18,7 @@ class teamController{
     }
     async updateTeamPicture(req,res){
         try {
-            const id = await playerService.updateTeamPicture(req.body);
+            const id = await teamService.updateTeamPicture(req.body);
             res.status(201).json({
                 changeOn:id,
                 status:201,

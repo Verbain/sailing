@@ -97,6 +97,24 @@ class gameController{
             console.log(err);
         }
     }
+    async getAllGamesWithOpponent(req,res){
+        try {
+            await db.select().table('games').whereNotNull('team_2').whereNull('result').then(function (ret){
+                res.status(201).json(ret);
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
+    async getAllGamesWithoutOpponent(req,res){
+        try {
+            await db.select().table('games').whereNull('team_2').then(function (ret){
+                res.status(201).json(ret);
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
 }
 
 module.exports = new gameController();
