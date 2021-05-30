@@ -10,8 +10,7 @@ function TeamForm() {
         window.location = "/teams"
     } 
 
-    return (
-        
+    return (        
         <div>
             <form class="form" onSubmit={handleSubmit(onSubmit)}>
                 <div class="form-item">
@@ -28,7 +27,7 @@ function TeamForm() {
                 </div>
             </form>
         </div>
-        
+     
     );
 }
 

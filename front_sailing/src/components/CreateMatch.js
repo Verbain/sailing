@@ -1,15 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React from 'react';
 import MatchForm from './MatchForm';
 
 function CreateMatch() {
-    const[dataTeam, setDataTeam ] = useState([]);
-
-    useEffect(() => {
-    axios.get('/api/teams').then((res) => setDataTeam(res.data));
-    }, []);
-
-
     
     return(
         

@@ -20,23 +20,22 @@ function Home() {
         <div class="div-home-0">
             <div class="div-home-1">
                 <div class="div-home-2">
-                    <h2> Recherche de match </h2>
-                    <div class="h2-place"></div>
-                    <div>
-                        {data2.map((matchbis) =>(
-                            <MatchCardBis dataTeam={dataTeam} matchbis={matchbis} key={matchbis.id}/>
-                        ))}
-                    </div>
-                    
-                </div>       
-            </div>
-            <div class="div-home-1">
-                <div class="div-home-2-bis">
                     <h2> Match en cours </h2>
                     <div class="h2-place"></div>
                     <div>
                         {data.map((match)=>(
                             <MatchCard match={match} key={match.id}/>
+                        ))}
+                    </div>
+                </div>       
+            </div>
+            <div class="div-home-1">
+                <div class="div-home-2">
+                    <h2> Recherche de match </h2>
+                    <div class="h2-place"></div>
+                    <div>
+                        {data2.map((matchbis) =>(
+                            <MatchCardBis dataTeam={dataTeam} matchbis={matchbis} key={matchbis.id}/>
                         ))}
                     </div>
                 </div>       

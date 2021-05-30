@@ -5,8 +5,8 @@ import mixpanel from 'mixpanel-browser';
 mixpanel.init('MIXPANEL_TOKEN');
 
 
-function MatchForm(props) {
-    const { dataTeam } = props;
+
+function MatchForm() {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         axios.post('/api/newGame', data);
@@ -15,8 +15,7 @@ function MatchForm(props) {
 
     } 
 
-    return (
-        
+    return (      
         <div>
             <form class="form" onSubmit={handleSubmit(onSubmit)}>
                 <div class="form-item">
