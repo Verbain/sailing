@@ -381,4 +381,6 @@
   .addplayer-id {
     overflow: hidden;
     overflow-y: scroll;
+    height: 120px;
+
   }
