@@ -10,6 +10,9 @@ function CreateTeam() {
                 <div class="div-home-2">
             <TeamForm />
         </div>
+        </div>
+        </div>
+
     );
 }
 

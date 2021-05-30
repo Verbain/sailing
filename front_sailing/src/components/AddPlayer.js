@@ -5,8 +5,9 @@ import { useForm } from "react-hook-form";
 
 function AddPlayer(props) {
     const { team } = props;
+    const { teamComp } = props;
     const { register, handleSubmit } = useForm();
-
+    console.log(teamComp);
 
     const onSubmit = (data) => { 
         const playerID = { playerID : data.pseudo, teamID : team.id}
@@ -17,7 +18,9 @@ function AddPlayer(props) {
     return (
         <div>
             <div>
-                
+            {teamComp.map((tc) =>(
+                <p> {tc.id_player}</p>
+            ))}
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("pseudo")} />
