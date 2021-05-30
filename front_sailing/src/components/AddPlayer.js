@@ -15,10 +15,16 @@ function AddPlayer(props) {
     } 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("pseudo")} />
-            <button type="submit">Submit</button>
-        </form>
+        <div>
+            <div>
+                
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input {...register("pseudo")} />
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+        
     );
 }
 

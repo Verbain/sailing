@@ -16,12 +16,13 @@ function Profile() {
     }
 
     const onSubmitSummonerName = (data) => {
-        const playerSummonerName = { pseudo : nickname, summonerName : data.summonerName}
+        const playerSummonerName = { pseudo : nickname, summonerName : data.summonerName, email: email}
         axios.post('/api/newPlayer', playerSummonerName)
     }
     
 
     return(
+        
         <div class="profile-container">
             <div class="div-profile-0">
                 <div class="div-profile-1">

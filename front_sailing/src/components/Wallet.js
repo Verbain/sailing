@@ -4,6 +4,7 @@ function Wallet(props){
     const {wallet}=props;
     
     return(
+        
         <div>
             {wallet.wallet} SC
         </div>

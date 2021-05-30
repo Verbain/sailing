@@ -10,18 +10,21 @@ function MatchCardBis(props) {
 
     useEffect(() => {
         axios.get(`/api/teamName/${matchbis.id}`).then((res) => setData(res.data));
-        console.log(data);
     }, []);
 
     const { register, handleSubmit } = useForm();
     
     const onSubmit = (data) => {
         const teamOpponent = { id : matchbis.id, opponent : data.teamID }
-        axios.post('/api/updateOpponent', teamOpponent);
-        console.log(teamOpponent);
+        if(!matchbis.team_1==data.teamID){
+            axios.post('/api/updateOpponent', teamOpponent);
+        } else {
+            alert("Erreur, vous devez être connecter pour rejoindre un match avec votre équipe, deplus une même équipe ne peux s'affronter.")
+        }
     } 
 
     return (
+        
         <div>
             <div class="div-game-info"> "{matchbis.game_name}" | Mise : {matchbis.mise} SC</div>
             <div class="div-match-0">
@@ -32,20 +35,17 @@ function MatchCardBis(props) {
                     VS
                 </div>
                 <div class="div-match-3">
-                    {matchbis.team_2}
+                <form onSubmit={handleSubmit(onSubmit)} class="matchbis-form">
+                    <label for="teams">Équipe : </label>
+                    <select id="teams" {...register("teamID")}>
+                        {dataTeam.map((teams)=>(
+                            <option >{teams.id}</option>
+                        ))}
+                    </select>
+                    <button type="submit" class="matchbis-button"> ↩ </button>
+                </form>
                 </div>
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-            <label for="teams">Choose a team:</label>
-                <select id="teams" {...register("teamID")}>
-                    {dataTeam.map((teams)=>(
-                        <option >{teams.id}</option>
-                    ))}
-                </select>
-                <button type="submit">Submit</button>
-            </form>
-            
-                
+            </div>           
         </div>
         
         
