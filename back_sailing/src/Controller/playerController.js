@@ -101,6 +101,16 @@ class playerController{
             console.log(err);
         }
     }
+    async getPlayerByEmail(req,res, playerEmail){
+        playerEmail = req.params.playerEmail
+        try {
+            await db.select().table('players').where({email: playerEmail}).then(function (ret){
+                res.status(201).json(ret);
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
 
 }
 

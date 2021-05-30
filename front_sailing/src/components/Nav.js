@@ -10,6 +10,9 @@ function Nav() {
     const { isAuthenticated, user } = useAuth0();
     const [ data, setData] = useState([]);
 
+
+
+
     useEffect(() =>{
         if (isAuthenticated === true) {
             const {nickname} = user;
