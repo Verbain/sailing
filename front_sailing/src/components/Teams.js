@@ -13,6 +13,7 @@ function CreateTeam() {
     }, []);
 
     return(
+        
         <div class="teams">
             <div class="div-team-0">
                 <div class="div-team-1">

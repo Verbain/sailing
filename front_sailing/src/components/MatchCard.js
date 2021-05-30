@@ -12,6 +12,7 @@ function MatchCard(props) {
 
 
     return (
+        
         <div>
             <div class="div-game-info"> "{match.game_name}" | Mise : {match.mise} SC</div>
             <div class="div-match-0">

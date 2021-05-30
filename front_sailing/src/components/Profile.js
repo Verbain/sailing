@@ -22,6 +22,7 @@ function Profile() {
     
 
     return(
+        
         <div class="profile-container">
             <div class="div-profile-0">
                 <div class="div-profile-1">

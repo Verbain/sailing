@@ -13,6 +13,7 @@ function Match() {
     }, []);
 
     return(
+        
         <div>
             <div>
                 {data.map((match)=>(

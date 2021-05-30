@@ -11,6 +11,7 @@ function TeamForm() {
     } 
 
     return (
+        
         <div>
             <form class="form" onSubmit={handleSubmit(onSubmit)}>
                 <div class="form-item">
