@@ -1,6 +1,5 @@
 *{
     text-decoration: none;
-  
   }
   
   .App-header {
@@ -80,6 +79,7 @@
     height: (100vh - 65px);
     display: flex;
     justify-content: space-around;
+
 
     
   }
