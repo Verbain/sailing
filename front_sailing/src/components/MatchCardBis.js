@@ -10,7 +10,6 @@ function MatchCardBis(props) {
 
     useEffect(() => {
         axios.get(`/api/teamName/${matchbis.id}`).then((res) => setData(res.data));
-        console.log(data);
     }, []);
 
     const { register, handleSubmit } = useForm();

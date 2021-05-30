@@ -27,6 +27,53 @@ const {handleEvent,createCheckout} = require('./src/Controller/stripeController'
 app.use(express.json());
 app.use(cors());
 
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
+
+app.get('/profile', function(req, res) {
+    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
+
+  app.get('/createMatch', function(req, res) {
+    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
+
+  app.get('/teams', function(req, res) {
+    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
+
+  app.get('/teams/createTeam', function(req, res) {
+    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
+
+  app.get('/shop', function(req, res) {
+    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
 
 //STRIPES
 app.post('/create-checkout-session',createCheckout);

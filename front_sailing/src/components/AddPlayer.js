@@ -7,17 +7,35 @@ function AddPlayer(props) {
     const { team } = props;
     const { teamComp } = props;
     const { register, handleSubmit } = useForm();
-    console.log(teamComp);
 
     const onSubmit = (data) => { 
         const playerID = { playerID : data.pseudo, teamID : team.id}
-        axios.post('/api/addPlayerInTeam', playerID);
+        const isPresent = false;
+        
+        teamComp.map((tc) => 
+               {
+                if(data.pseudo==tc.id_player){
+                    alert(`Impossible, le joueur est déjà dans l'équipe ${team.team_name}.`)
+                    isPresent = true;
+
+                }
+
+            })
+            
+   
+            if(!isPresent){
+                axios.post('/api/addPlayerInTeam', playerID);
+                alert(`Joueur ajouter a l'équipe ${team.team_name}. `)
+                window.location = '/teams'
+            
+            }
+
 
     } 
 
     return (
         <div>
-            <div>
+            <div class="addplayer-id">
             {teamComp.map((tc) =>(
                 <p> {tc.id_player}</p>
             ))}

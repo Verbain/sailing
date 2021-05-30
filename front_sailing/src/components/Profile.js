@@ -12,12 +12,14 @@ function Profile() {
     const onSubmitOpGg = (data) => { 
         const playerOpGg = { opGg : data.opGg, pseudo : nickname }
         axios.post('/api/updateOpGg', playerOpGg);
+        window.location = '/profile'
 
     }
 
     const onSubmitSummonerName = (data) => {
         const playerSummonerName = { pseudo : nickname, summonerName : data.summonerName, email: email}
         axios.post('/api/newPlayer', playerSummonerName)
+        window.location = '/profile'
     }
     
 
