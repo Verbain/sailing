@@ -10,13 +10,24 @@ function TeamForm() {
         window.location = "/teams"
     } 
 
-    return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("teamName")} />
-        <input {...register("teamPicture")} />
-        <input {...register("teamPicture")} />
-        <button type="submit">Submit</button>
-    </form>
+    return (        
+        <div>
+            <form class="form" onSubmit={handleSubmit(onSubmit)}>
+                <div class="form-item">
+                    <label > Nom de l'équipe : </label>
+                    <input {...register("teamName")} />
+                </div>
+                <div class="form-item">
+                    <label for="teams">Image d'équipe ( pas obligatoire ) : </label>
+                    <input {...register("teamPicture")} />
+
+                </div>
+                <div class="form-item">
+                    <button class="form-button" type="submit">Créer</button>
+                </div>
+            </form>
+        </div>
+     
     );
 }
 

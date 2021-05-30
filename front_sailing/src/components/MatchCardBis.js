@@ -22,6 +22,7 @@ function MatchCardBis(props) {
     } 
 
     return (
+        
         <div>
             <div class="div-game-info"> "{matchbis.game_name}" | Mise : {matchbis.mise} SC</div>
             <div class="div-match-0">

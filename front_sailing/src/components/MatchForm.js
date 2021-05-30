@@ -15,13 +15,31 @@ function MatchForm() {
 
     } 
 
-    return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("gameName")} />
-        <input {...register("team")} />
-        <input {...register("mise")} />
-        <button type="submit">Submit</button>
-    </form>
+    return (      
+        <div>
+            <form class="form" onSubmit={handleSubmit(onSubmit)}>
+                <div class="form-item">
+                    <label > Nom de la partie : </label>
+                    <input {...register("gameName")} />
+                </div>
+                <div class="form-item">
+                    <label for="teams">Équipe : </label>
+                            <select id="teams" {...register("team")}>
+                                {dataTeam.map((teams)=>(
+                                    <option >{teams.id}</option>
+                                ))}
+                            </select>
+                </div>
+                <div class="form-item">
+                    <label > Mise : </label>
+                    <input {...register("mise")} />
+                </div>
+                <div class="form-item">
+                    <button class="form-button" type="submit">Créer</button>
+                </div>
+            </form>
+        </div>
+        
     );
 }
 

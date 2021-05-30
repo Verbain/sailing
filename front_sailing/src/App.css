@@ -318,3 +318,18 @@
 .teamcard-list li {
   margin-top: 5px;
 }
+
+/* ------------------ FORM CREATE TEAM/MATCH ------------------ */
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+

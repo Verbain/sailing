@@ -13,6 +13,7 @@ function TeamCard(props) {
     }, []);
 
     return(
+        
         <div class="team">
             <div class="teamcard">
                 <div class="teamcard-info">
