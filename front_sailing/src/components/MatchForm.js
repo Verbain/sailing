@@ -7,7 +7,7 @@ mixpanel.init('MIXPANEL_TOKEN');
 
 
 function MatchForm(props) {
-    const { dataTeam } = props;
+    const {dataTeam}=props
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         axios.post('/api/newGame', data);
