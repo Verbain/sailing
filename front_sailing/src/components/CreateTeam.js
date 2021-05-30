@@ -7,11 +7,12 @@ function CreateTeam() {
         
         <div class="div-home-0">
             <div class="div-home-1">
-                <div class="div-home-2">
+                <div class="div-home-2-form">
             <TeamForm />
         </div>
-            </div>
         </div>
+        </div>
+
     );
 }
 

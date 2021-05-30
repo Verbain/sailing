@@ -6,13 +6,15 @@ function CreateMatch() {
     const[dataTeam, setDataTeam ] = useState([]);
 
     useEffect(() => {
+
         axios.get('/api/teams').then((res) => setDataTeam(res.data));
     }, []);
+
     return(
         
         <div class="div-home-0">
             <div class="div-home-1">
-                <div class="div-home-2">
+                <div class="div-home-2-form">
             <MatchForm dataTeam={dataTeam}/>
         </div>
         </div>

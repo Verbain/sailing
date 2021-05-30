@@ -4,11 +4,10 @@ import axios from "axios";
 
 function TeamCard(props) {
     const { team } = props;
-    
-    const[data, setData] = useState([]);
+    const [teamComp, setDataTC]= useState([]);
     
     useEffect(() => {
-        axios.get('/api/teams').then((res) => setData(res.data));
+        axios.get(`/api/teamComposition/${team.id}`).then((res) => setDataTC(res.data))
 
     }, []);
 
@@ -21,7 +20,7 @@ function TeamCard(props) {
                 </div>
                 <div class="teamcard-list">
                     <li>
-                        <AddPlayer team={team} />
+                        <AddPlayer team={team} teamComp={teamComp} />
                     </li>
                 </div>
             </div>
