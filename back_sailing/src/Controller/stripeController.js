@@ -22,30 +22,31 @@ async function createCheckout (req, res) {
             },
         ],
         mode: 'payment',
-        success_url: `http://localhost:4000/`,
-        cancel_url: `http://localhost:4000/`,
+        success_url: `http://localhost:4000/success`,
+        cancel_url: `http://localhost:4000/cancel`,
     });
     res.json({id: session.id});
 }
 const fulfillOrder = async (session) => {
-    console.log(session.customer_details.email);
-    const payload = {
-        email:session.customer_details.email
-    }
-    console.log(payload)
-    console.log("THIS IS PAYLOAD",payload)
-    let res = await axios.post('https://sailing-staging.herokuapp.com/api/updateWallet',payload)
-        .then(r=>{
-            let data = r.data;
-            console.log(data);
-        })
-        .catch(error =>{
-            console.log(error);
-        })
-    mixpanel.track("ACHAT DE SAILING COIN");
+    var payload = {
+            id:'1',
+            wallet:'5',
+        }
+
+        let res = await axios.post('http://localhost:4000/api/updateWallet',payload)
+            .then(r=>{
+                let data = r.data;
+                console.log(data);
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+    mixpanel.track("ACHAT DE SAILING COIN",session);
     console.log("Fulfilling order", session);
 }
 function handleEvent (request, response)  {
+    const payload = request.body;
+    const sig = request.headers['stripe-signature'];
 
     let event = request.body;
 
