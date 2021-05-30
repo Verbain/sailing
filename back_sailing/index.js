@@ -68,6 +68,8 @@ app.get('/api/teamComposition/:teamId',teamCompositionController.getPlayerInTeam
 app.post('/api/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
 app.post('/api/addCaptain',teamCompositionController.newTeam);
 app.post('/api/updateStatus',teamCompositionController.updateStatus);
+app.get('/api/teamComposition/:playerId',teamCompositionController.getTeamOfPlayer)
+
 
 //TEST
 app.get('/api/teams_games',gameController.getAllGameWithTeamName);

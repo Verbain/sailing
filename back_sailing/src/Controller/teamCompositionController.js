@@ -65,6 +65,18 @@ class teamCompositionController{
             console.log(err);
         }
     }
+
+    async getTeamOfPlayer(req,res, playerID){
+        playerID = req.params.playerId
+        try {
+            await db.select().table('teams_compositions').where({id_player: playerID}).then(function (ret){
+                res.status(201).json(ret);
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
+
 }
 
 module.exports = new teamCompositionController();
