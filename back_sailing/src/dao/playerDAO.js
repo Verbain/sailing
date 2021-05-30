@@ -1,7 +1,7 @@
 const db = require('../db/db');
 
 class playerDAO{
-    async createPlayer(pseudo, summonerName, opGg, profilePicture, email){
+    async createPlayer(pseudo, summonerName, opGg, profilePicture){
         const [ret] = await db('players').insert({
             pseudo: pseudo,
             summoner_name: summonerName,
@@ -9,8 +9,7 @@ class playerDAO{
             riot_accoumpt_id: null,
             profile_picture: profilePicture,
             op_gg: opGg,
-            player_rank: null,
-            email:email
+            player_rank: null
         }).returning('id');
 
         return ret;
@@ -30,8 +29,8 @@ class playerDAO{
 
         return ret;
     }
-    async updateWallet1(email){
-        const [ret] = await db('players').where({email: email}).increment('wallet',1).returning('id');
+    async updateWallet1(id , wallet){
+        const [ret] = await db('players').where({id: id}).update({wallet: wallet}).returning('id');
         return ret;
     }
 

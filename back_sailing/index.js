@@ -45,9 +45,8 @@ app.post('/api/updateRiotID',playerController.updateRiotID);
 app.post('/api/updateProfilePicture',playerController.updateProfilePicture);
 app.post('/api/updateOpGg',playerController.updateOpGg);
 app.get('/api/players',playerController.getAllPlayers);
-app.get('/api/player/:playerId',playerController.getPlayer);
-app.get('/api/playerByName/:playerName',playerController.getPlayerByName);
-app.get('/api/getPlayerByEmail/:playerEmail',playerController.getPlayerByEmail);
+app.get('/api/player/:playerId',playerController.getPlayer)
+app.get('/api/playerByName/:playerName',playerController.getPlayerByName)
 //TEAM ROUTING
 app.get('/api/teams',teamController.getAllTeams);
 app.get('/api/team/:teamId',teamController.getTeam);
