@@ -79,14 +79,13 @@
 .div-home-0 {
   height: (100vh - 65px);
   display: flex;
-  justify-content: space-around;
   
 }
 
 .div-home-1 {
   display: flex;
   justify-content: center;
-  margin-top: 40px;  
+  margin-top: 20px;  
 }
 
 .div-home-2 {
@@ -102,20 +101,6 @@
   box-shadow: 5px 5px 10px 5px #13151a;
 }
 
-.div-home-2-bis {
-    background-color: #13151a;
-    width: 500px;
-    height: 500px;
-    overflow: hidden;
-    overflow-y: scroll;
-    border: solid;
-    border-radius: 10px;
-    border-width: 5px;
-    border-color: black;
-    box-shadow: 5px 5px 10px 5px #13151a;
-
-}
-
 .div-home-2 h2 {
   z-index: 0;
   display: flex;
@@ -123,16 +108,6 @@
   position: absolute;
   background-color: black;
   width: 695px;
-  height: 50px;
-}
-
-.div-home-2-bis h2 {
-  z-index: 0;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  background-color: black;
-  width: 495px;
   height: 50px;
 }
 
@@ -157,15 +132,6 @@
   font-size: 13px;
 }
 
-.matchbis-button {
-  width: 40px;
-  height: 40px;
-}
-
-.matchbis-form {
-  display: flex;
-  justify-content: space-around;
-}
 
 /* ------------------ SHOP ------------------ */
 
@@ -351,18 +317,4 @@
 
 .teamcard-list li {
   margin-top: 5px;
-}
-
-
-/* ------------------ FORM CREATE TEAM/MATCH ------------------ */
-
-.form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-item {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
 }

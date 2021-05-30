@@ -6,13 +6,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import stripesTest from "./components/stripesTest";
 
-
 function App() {
   const { isLoading } = useAuth0();
   if (isLoading){
     return <Loading/>;
   }
-
   return (
     <Router>
       <div className="App">
@@ -24,7 +22,7 @@ function App() {
               <ProtectedRoute path="/profile" exact component={Profile}/>
               <ProtectedRoute path="/createMatch" exact component={CreateMatch}/>
               <ProtectedRoute path="/teams/createTeam" exact component={CreateTeam}/>
-              <ProtectedRoute path="/teams"  exact component={Teams}/>
+              <ProtectedRoute path="/teams" exact component={Teams}/>
               <ProtectedRoute path="/shop" exact component={stripesTest}/>
             </Switch>
         </header>
