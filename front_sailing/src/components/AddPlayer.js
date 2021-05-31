@@ -8,9 +8,8 @@ function AddPlayer(props) {
     const { teamComp } = props;
     const { register, handleSubmit } = useForm();
 
-    const onSubmit = (data) => { 
-        const playerID = { playerID : data.pseudo, teamID : team.id}
-        const isPresent = false;
+    const onSubmit = async (data) => { 
+        let isPresent = false;
         
         teamComp.map((tc) => 
                {
@@ -24,7 +23,12 @@ function AddPlayer(props) {
             
    
             if(!isPresent){
-                axios.post('/api/addPlayerInTeam', playerID);
+                const getResponse = await axios.get(`/api/playerByName/${data.pseudo}`)
+                const playerData = getResponse.data
+                const playerID = { playerID : playerData[0].id, teamID : team.id}
+                console.log(getResponse);
+                console.log('playerID', playerID);
+                await axios.post('/api/addPlayerInTeam', playerID);
                 alert(`Joueur ajouter à l'équipe ${team.team_name}. `)
                 window.location = '/teams'
             
