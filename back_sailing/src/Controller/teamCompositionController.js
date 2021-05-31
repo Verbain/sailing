@@ -58,7 +58,11 @@ class teamCompositionController{
     async getPlayerInTeam(req,res, teamID){
         teamID = req.params.teamId
         try {
-            await db.select().table('teams_compositions').where({id_team: teamID}).then(function (ret){
+            await db.select('teams_compositions.id','teams_compositions.id_player','teams_compositions.id_team','teams_compositions.status'
+            ,'players.pseudo')
+                .from('teams_compositions')
+                .leftJoin('players','teams_compositions.id_player','players.id')
+                .where({'teams_compositions.id_team': teamID}).then(function (ret){
                 res.status(201).json(ret);
             });
         } catch (err){

@@ -37,7 +37,7 @@ function AddPlayer(props) {
         <div>
             <div class="addplayer-id">
             {teamComp.map((tc) =>(
-                <p> {tc.id_player}</p>
+                <p> {tc.pseudo}</p>
             ))}
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
