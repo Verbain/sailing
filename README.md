@@ -1,4 +1,4 @@
-# sailling
+# sailing
 sailing project for T&amp;C Factory 
 
 sailing est une application web permettant de mettre en opposition deux équipes,
@@ -18,7 +18,7 @@ NODE.JS - Back
 Postgresql - Database  
 GitHub - Versioning
 
-#Run lastest version locally
+# Run lastest version locally
 if you want join us to developpe Sailling follow these step :
 ### first step clone the project
 ```
@@ -56,7 +56,7 @@ $ docker-compose up
 ```
 when you created ur docker container, connect your database and get the URL and put it 
 on the .env ./
-####load the data from migration
+#### load the data from migration
 ```
 $ knex migrate:latest
 $ knex seed:run
