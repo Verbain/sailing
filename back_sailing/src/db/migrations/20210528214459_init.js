@@ -9,6 +9,7 @@ exports.up = function(knex) {
           table.string('profile_picture');
           table.string('op_gg');
           table.string('player_rank');
+          table.string('email');
           table.integer('wallet');
       })
       .createTable('teams',function (table){
