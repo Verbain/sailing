@@ -5,9 +5,9 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('players').insert([
-        {id: 1, pseudo: 'verbain',sumoner_name:'verbaintim',wallet:5},
-        {id: 2, pseudo: 'rettah',sumoner_name:'verbaintim',wallet:1},
-        {id: 3, pseudo: 'haard953',sumoner_name:'verbaintim',wallet:0}
+        {pseudo: 'verbain',sumoner_name:'verbaintim',wallet:5,email:'seb95370@gmail.com'},
+        {pseudo: 'rettah',sumoner_name:'verbaintim',wallet:1,email:'kevin953@outlook.com'},
+        {pseudo: 'haard953',sumoner_name:'verbaintim',wallet:0,email:'haard953@gmail.com'}
       ]);
     });
 };
