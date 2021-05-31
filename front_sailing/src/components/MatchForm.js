@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
+import SelectTeam from "./selectTeam";
 import mixpanel from 'mixpanel-browser';
 mixpanel.init('MIXPANEL_TOKEN');
 
@@ -27,7 +28,7 @@ function MatchForm(props) {
                     <label for="teams">Équipe : </label>
                             <select id="teams" {...register("team")}>
                                 {dataTeam.map((teams)=>(
-                                    <option >{teams.id}</option>
+                                    <SelectTeam teams={teams} key={teams.id}/>
                                 ))}
                             </select>
                 </div>

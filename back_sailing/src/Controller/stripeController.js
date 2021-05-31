@@ -22,8 +22,8 @@ async function createCheckout (req, res) {
             },
         ],
         mode: 'payment',
-        success_url: `http://localhost:4000/`,
-        cancel_url: `http://localhost:4000/`,
+        success_url: `https://sailing-staging.herokuapp.com/`,
+        cancel_url: `https://sailing-staging.herokuapp.com/`,
     });
     res.json({id: session.id});
 }

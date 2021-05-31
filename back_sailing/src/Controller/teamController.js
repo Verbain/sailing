@@ -15,7 +15,6 @@ class teamController{
                 response:"team ADD",
                 data:req.body
             })
-            console.log(process.env.MIXPANEL_TOKEN);
             mixpanel.track("new team created");
         } catch (err){
             console.error(err);
