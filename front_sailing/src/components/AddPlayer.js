@@ -25,7 +25,7 @@ function AddPlayer(props) {
    
             if(!isPresent){
                 axios.post('/api/addPlayerInTeam', playerID);
-                alert(`Joueur ajouter a l'équipe ${team.team_name}. `)
+                alert(`Joueur ajouter à l'équipe ${team.team_name}. `)
                 window.location = '/teams'
             
             }
