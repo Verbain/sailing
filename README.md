@@ -4,7 +4,7 @@ sailing project for T&amp;C Factory
 sailing est une application web permettant de mettre en opposition deux équipes,
 ces deux équipes engagerons une mise de "Sailing Coin" le gagnant repart avec tout!
 
-#Features
+# Features
 _actuellement disponible_
 * create new team
 * join team
@@ -12,7 +12,7 @@ _actuellement disponible_
 * join match
 * add money into wallet
 
-#Techno
+# Techno
 REACT - Front  
 NODE.JS - Back  
 Postgresql - Database  
@@ -29,7 +29,7 @@ $git pull origin main
 ### add .env to ur project
 you will need to add 2 .env one for the front and one for the back
 
-####front .env path: /front_sailing
+#### front .env path: /front_sailing
 _for get acces to these key, you need to be added into auth0 project_
 ```
 REACT_APP_AUTH0_DOMAIN=
@@ -61,13 +61,13 @@ on the .env ./
 $ knex migrate:latest
 $ knex seed:run
 ```
-#####reload the data from migration
+##### reload the data from migration
 ```
 $ knex migrate:rollback
 $ knex migrate:latest
 $ knex seed:run
 ```
-###You're ready to run locally the project
+### You're ready to run locally the project
 _start from the root folder of the project and follow these step_
 ```
 $ cd front_sailing
