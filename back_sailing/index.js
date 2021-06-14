@@ -13,6 +13,7 @@ require('dotenv').config();
 const serialization = require('./src/response/Serializations');
 const context = require('./src/decorators/Context');
 const { getSummonerIdWithName, getMatchId, getMatchResult} = require('./src/Controller/MainController');
+const {home, profile, createMatch, team, createTeam, shop} = require('./src/Controller/reactController');
 const playerController = require('./src/Controller/playerController');
 const teamController = require('./src/Controller/teamController');
 const gameController = require('./src/Controller/gameController');
@@ -27,53 +28,13 @@ const {handleEvent,createCheckout} = require('./src/Controller/stripeController'
 app.use(express.json());
 app.use(cors());
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-app.get('/profile', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-  app.get('/createMatch', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-  app.get('/teams', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-  app.get('/teams/createTeam', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-  app.get('/shop', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
+//NAVIGATIONS
+app.get('/',home);
+app.get('/profile', profile);
+app.get('/createMatch', createMatch);
+app.get('/teams', team);
+app.get('/teams/createTeam', createTeam);
+app.get('/shop', shop);
 
 //STRIPES
 app.post('/create-checkout-session',createCheckout);
