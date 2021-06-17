@@ -81,12 +81,15 @@ class teamCompositionController{
         }
     }
 
-    async removePlayerInTeam(req,res,teamID,playerID){
-        teamID = req.params.teamId;
-        playerID = req.params.playerId;
+    async removePlayerInTeam(req,res,compositionID){
+        compositionID = req.params.compositionId;
         try {
-            await  db('teams_compositions').where({id_player : playerID, id_team : teamID}).del().then(function (ret){
-                res.status(201).json(ret);
+            await  db('teams_compositions').where({id : compositionID}).del().then(function (ret){
+                res.status(201).json({
+                    status: 201,
+                    response: 'player remove',
+                    gameID : compositionID,
+                });
             });
         } catch (err) {
             console.log(err);

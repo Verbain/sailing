@@ -56,7 +56,11 @@ class teamController{
         teamID = req.params.teamId;
         try{
             await db('teams').where({id : teamID}).del().then(function (ret){
-                res.status(201).json(ret);
+                res.status(201).json({
+                    status: 201,
+                    response: 'team deleted',
+                    gameID : teamID,
+                });
             });
         } catch (err){
             console.log(err);

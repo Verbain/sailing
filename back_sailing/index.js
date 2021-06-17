@@ -61,7 +61,7 @@ app.get('/api/teams',teamController.getAllTeams);
 app.get('/api/team/:teamId',teamController.getTeam);
 app.post('/api/newTeam',teamController.createTeam);
 app.post('/api/updateTeamPicture',teamController.updateTeamPicture);
-app.get('/api/removeTeam/teamId',teamController.removeTeam);
+app.get('/api/removeTeam/:teamId',teamController.removeTeam);
 //GAME ROUTING
 app.get('/api/games',gameController.getAllGames);
 app.get('/api/game/:gameId',gameController.getGame);
@@ -75,11 +75,12 @@ app.get('/api/removeGame/:gameId',gameController.removeGame);
 //TEAMS COMPOSITION ROUTING
 app.get('/api/teamComposition',teamCompositionController.getAllPlayers);
 app.get('/api/teamComposition/:teamId',teamCompositionController.getPlayerInTeam);
+app.get('/api/removePlayerInTeam/:compositionId',teamCompositionController.removePlayerInTeam);
 app.post('/api/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
 app.post('/api/addCaptain',teamCompositionController.newTeam);
 app.post('/api/updateStatus',teamCompositionController.updateStatus);
 app.get('/api/teamComposition/:playerId',teamCompositionController.getTeamOfPlayer);
-app.get('/api/removePlayerInTeam/:teamId/:playerId',teamCompositionController.removePlayerInTeam);
+
 
 
 //TEST
