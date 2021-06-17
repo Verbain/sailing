@@ -118,6 +118,16 @@ class gameController{
             console.log(err);
         }
     }
+    async removeGame(req,res,gameID){
+        gameID = req.param.gameId;
+        try {
+            await db('games').where({id : gameID}).del().then(function (ret){
+                res.status(201).json(ret);
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
 }
 
 module.exports = new gameController();

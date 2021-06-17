@@ -15,7 +15,6 @@ class teamController{
                 response:"team ADD",
                 data:req.body
             })
-            console.log(process.env.MIXPANEL_TOKEN);
             mixpanel.track("new team created");
         } catch (err){
             console.error(err);
@@ -47,6 +46,16 @@ class teamController{
         teamID = req.params.teamId
         try {
             await db.select().table('teams').where({id: teamID}).then(function (ret){
+                res.status(201).json(ret);
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
+    async removeTeam(req,res,teamID){
+        teamID = req.params.teamId;
+        try{
+            await db('teams').where({id : teamID}).del().then(function (ret){
                 res.status(201).json(ret);
             });
         } catch (err){
