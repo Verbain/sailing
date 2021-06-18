@@ -67,6 +67,8 @@ $ knex migrate:rollback
 $ knex migrate:latest
 $ knex seed:run
 ```
+###You're ready to run locally the project
+=======
 ### You're ready to run locally the project
 _start from the root folder of the project and follow these step_
 ```
@@ -79,8 +81,15 @@ $ npm start
 ```
 _for every modification in the front folder you need to rebuild the front to 
 get the change_
+
+#Enjoy and see you soon in a MONEY MATCH
+#Contact-us
+You can contact us if you want join the adventure ! 
+* seb95370@gmail.com
+* kevin953@outlook.com
 # Enjoy and see you soon in a MONEY MATCH
 # Contact-us
 You can contact us if you want join the adventure ! 
 * seb95370@gmail.com
 * kevin953@outlook.com
+

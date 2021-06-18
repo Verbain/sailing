@@ -13,6 +13,7 @@ require('dotenv').config();
 const serialization = require('./src/response/Serializations');
 const context = require('./src/decorators/Context');
 const { getSummonerIdWithName, getMatchId, getMatchResult} = require('./src/Controller/MainController');
+const {home, profile, createMatch, team, createTeam, shop} = require('./src/Controller/reactController');
 const playerController = require('./src/Controller/playerController');
 const teamController = require('./src/Controller/teamController');
 const gameController = require('./src/Controller/gameController');
@@ -27,53 +28,13 @@ const {handleEvent,createCheckout} = require('./src/Controller/stripeController'
 app.use(express.json());
 app.use(cors());
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-app.get('/profile', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-  app.get('/createMatch', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-  app.get('/teams', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-  app.get('/teams/createTeam', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-
-  app.get('/shop', function(req, res) {
-    res.sendFile(path.join(__dirname, '../front_sailing/build/index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
+//NAVIGATIONS
+app.get('/',home);
+app.get('/profile', profile);
+app.get('/createMatch', createMatch);
+app.get('/teams', team);
+app.get('/teams/createTeam', createTeam);
+app.get('/shop', shop);
 
 //STRIPES
 app.post('/create-checkout-session',createCheckout);
@@ -100,6 +61,7 @@ app.get('/api/teams',teamController.getAllTeams);
 app.get('/api/team/:teamId',teamController.getTeam);
 app.post('/api/newTeam',teamController.createTeam);
 app.post('/api/updateTeamPicture',teamController.updateTeamPicture);
+app.get('/api/removeTeam/:teamId',teamController.removeTeam);
 //GAME ROUTING
 app.get('/api/games',gameController.getAllGames);
 app.get('/api/game/:gameId',gameController.getGame);
@@ -109,13 +71,16 @@ app.post('/api/updateOpponent',gameController.updateGameOpponent);
 app.post('/api/updateResult',gameController.updateGameResult);
 app.get('/api/gamesWithOpponent',gameController.getAllGamesWithOpponent);
 app.get('/api/gamesWithoutOpponent',gameController.getAllGamesWithoutOpponent);
+app.get('/api/removeGame/:gameId',gameController.removeGame);
 //TEAMS COMPOSITION ROUTING
 app.get('/api/teamComposition',teamCompositionController.getAllPlayers);
 app.get('/api/teamComposition/:teamId',teamCompositionController.getPlayerInTeam);
+app.get('/api/removePlayerInTeam/:compositionId',teamCompositionController.removePlayerInTeam);
 app.post('/api/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
 app.post('/api/addCaptain',teamCompositionController.newTeam);
 app.post('/api/updateStatus',teamCompositionController.updateStatus);
-app.get('/api/teamComposition/:playerId',teamCompositionController.getTeamOfPlayer)
+app.get('/api/teamComposition/:playerId',teamCompositionController.getTeamOfPlayer);
+
 
 
 //TEST

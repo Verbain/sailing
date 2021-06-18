@@ -81,6 +81,22 @@ class teamCompositionController{
         }
     }
 
+    async removePlayerInTeam(req,res,compositionID){
+        compositionID = req.params.compositionId;
+        try {
+            await  db('teams_compositions').where({id : compositionID}).del().then(function (ret){
+                res.status(201).json({
+                    status: 201,
+                    response: 'player remove',
+                    gameID : compositionID,
+                });
+            });
+        } catch (err) {
+            console.log(err);
+
+        }
+    }
+
 }
 
 module.exports = new teamCompositionController();
