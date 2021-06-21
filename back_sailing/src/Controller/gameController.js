@@ -70,7 +70,7 @@ class gameController{
     async getGame(req,res, gameID){
         gameID = req.params.gameId
         try {
-            await db.select().table('games').where({id: gameID}).then(function (ret){
+            await db.select().table('games').where({id: gameID}).first().then(function (ret){
                 res.status(201).json(ret);
             });
         } catch (err){

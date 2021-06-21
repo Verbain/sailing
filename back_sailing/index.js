@@ -18,7 +18,8 @@ const playerController = require('./src/Controller/playerController');
 const teamController = require('./src/Controller/teamController');
 const gameController = require('./src/Controller/gameController');
 const teamCompositionController = require('./src/Controller/teamCompositionController');
-const {handleEvent,createCheckout} = require('./src/Controller/stripeController')
+const {handleEvent,createCheckout} = require('./src/Controller/stripeController');
+const {MatchEnd, setMatchId} = require('./src/Controller/operationController');
 
 //cron.schedule('*/5 * * * * * ', ()=>{
 //    console.log("cron schedule")
@@ -38,7 +39,7 @@ app.get('/shop', shop);
 
 //STRIPES
 app.post('/create-checkout-session',createCheckout);
-/*Verify event came from STRIPRES*/
+/*Verify event came from STRIPES*/
 app.post('/webhook', bodyParser.raw({type: 'application/json'}),handleEvent);
 
 
@@ -77,6 +78,7 @@ app.get('/api/removeGame/:gameId',gameController.removeGame);
 //TEAMS COMPOSITION ROUTING
 app.get('/api/teamComposition',teamCompositionController.getAllPlayers);
 app.get('/api/teamComposition/:teamId',teamCompositionController.getPlayerInTeam);
+app.get('/api/teamComposition/captain/:teamId',teamCompositionController.getCaptainInTeam);
 app.get('/api/removePlayerInTeam/:compositionId',teamCompositionController.removePlayerInTeam);
 app.post('/api/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
 app.post('/api/addCaptain',teamCompositionController.newTeam);
@@ -88,6 +90,8 @@ app.get('/api/teamComposition/:playerId',teamCompositionController.getTeamOfPlay
 //TEST
 app.get('/api/teams_games',gameController.getAllGameWithTeamName);
 app.get('/api/teamName/:gameId',gameController.getTeamNameByMatch);
+app.get('/api/matchEnd/:gameId',MatchEnd);
+app.get('/api/setGameId/:gameId',setMatchId);
 
 
 app.use(express.static(path.join(__dirname, '..', 'front_sailing', 'build')));
