@@ -56,7 +56,7 @@ function getMatchId(req, res, next){
     return axios.get(`${process.env.URL}/lol/spectator/v4/active-games/by-summoner/${req.params.nameid}`,{headers: {
             'X-Riot-Token': `${process.env.API_KEY}`}})
         .then(r=> {
-            console.log(r);
+            //console.log(r);
             res.return.response= r.data;
             return next();
         })
@@ -90,11 +90,11 @@ function getMatchResult(req, res, next){
             res.return ={
                 response:{error: error.message}
             };
-            console.log(error);
+            //console.log(error);
             return next();
         });
 }
-
+/*
 const task = cron.schedule('10 * * * * ', ()=>{
     getMatchResult;
     if (getMatchResult.end === 1){
@@ -103,7 +103,7 @@ const task = cron.schedule('10 * * * * ', ()=>{
     } else {
         console.log("no result found retry in 10mn")
     }
-});
+});*/
 
 
 module.exports ={getSummonerIdWithName, getMatchId, getMatchResult}

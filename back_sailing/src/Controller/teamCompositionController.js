@@ -69,6 +69,20 @@ class teamCompositionController{
             console.log(err);
         }
     }
+    async getCaptainInTeam(req,res, teamID){
+        teamID = req.params.teamId
+        try {
+            await db.select('teams_compositions.id','teams_compositions.id_player','teams_compositions.id_team','teams_compositions.status'
+                ,'players.summoner_name','players.riot_accoumpt_id')
+                .from('teams_compositions')
+                .leftJoin('players','teams_compositions.id_player','players.id')
+                .where({'teams_compositions.id_team': teamID,'teams_compositions.status':"captain"}).first().then(function (ret){
+                    res.status(201).json(ret);
+                });
+        } catch (err){
+            console.log(err);
+        }
+    }
 
     async getTeamOfPlayer(req,res, playerID){
         playerID = req.params.playerId
