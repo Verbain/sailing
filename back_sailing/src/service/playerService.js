@@ -25,6 +25,10 @@ class playerService{
         const {id,amount} = playerDTO
         return playerDAO.updateWalletDecremente(id,amount)
     }
+    updateWalletIncremente(playerDTO){
+        const {id,amount} = playerDTO
+        return playerDAO.updateWalletIncremente(id,amount)
+    }
 
 }
 
