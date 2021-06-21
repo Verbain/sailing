@@ -52,7 +52,20 @@ class playerController{
             res.status(201).json({
                 changeOn:id,
                 status:201,
-                response:"wallet decremented",
+                response:"wallet decremented with " + req.body.amount,
+                data:req.body
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
+    async updateWalletIncremente(req,res){
+        try {
+            const id = await playerService.updateWalletIncremente(req.body);
+            res.status(201).json({
+                changeOn:id,
+                status:201,
+                response:"wallet incremented with " + req.body.amount,
                 data:req.body
             });
         } catch (err){
