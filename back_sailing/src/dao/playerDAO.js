@@ -4,7 +4,7 @@ class playerDAO{
     async createPlayer(pseudo, summonerName, opGg, profilePicture, email){
         const [ret] = await db('players').insert({
             pseudo: pseudo,
-            summoner_name: summonerName,
+            summoner_name: summonerName.toLowerCase(),
             wallet: 0,
             riot_accoumpt_id: null,
             profile_picture: profilePicture,
@@ -15,8 +15,8 @@ class playerDAO{
 
         return ret;
     }
-    async updateRiotID(id, riotID){
-        const [ret] = await db('players').where({id: id}).update({riot_accoumpt_id: riotID}).returning('id');
+    async updateRiotID(name, riotID){
+        const [ret] = await db('players').where({summoner_name: name}).update({riot_accoumpt_id: riotID}).returning('id');
 
         return ret;
     }
@@ -32,6 +32,10 @@ class playerDAO{
     }
     async updateWallet1(email){
         const [ret] = await db('players').where({email: email}).increment('wallet',1).returning('id');
+        return ret;
+    }
+    async updateWalletDecremente(id, amount){
+        const [ret] = await db('players').where({id: id}).decrement('wallet',amount).returning('id');
         return ret;
     }
 

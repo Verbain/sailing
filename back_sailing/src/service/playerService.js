@@ -6,8 +6,8 @@ class playerService{
         return playerDAO.createPlayer(pseudo,summonerName,profilePicture,opGg,email);
     }
     updateRiotId(playerDTO){
-        const {id,riotID} = playerDTO;
-        return playerDAO.updateRiotID(id,riotID)
+        const {name,riotID} = playerDTO;
+        return playerDAO.updateRiotID(name,riotID)
     }
     updateProfilePicture(playerDTO){
         const {pseudo,profilePicture} = playerDTO;
@@ -20,6 +20,10 @@ class playerService{
     updateWallet1(playerDTO){
         const {email} = playerDTO
         return playerDAO.updateWallet1(email)
+    }
+    updateWalletDecremente(playerDTO){
+        const {id,amount} = playerDTO
+        return playerDAO.updateWalletDecremente(id,amount)
     }
 
 }
