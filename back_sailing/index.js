@@ -49,6 +49,7 @@ app.get('/api/result/:gameid',context(),getMatchResult,serialization );
 //PLAYER ROUTING
 app.post('/api/newPlayer', playerController.createPlayer);
 app.post('/api/updateWallet', playerController.updateWallet1);
+app.post('/api/updateWalletDecremente', playerController.updateWalletDecremente);
 app.post('/api/updateRiotID',playerController.updateRiotID);
 app.post('/api/updateProfilePicture',playerController.updateProfilePicture);
 app.post('/api/updateOpGg',playerController.updateOpGg);

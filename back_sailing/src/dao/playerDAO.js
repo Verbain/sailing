@@ -34,6 +34,10 @@ class playerDAO{
         const [ret] = await db('players').where({email: email}).increment('wallet',1).returning('id');
         return ret;
     }
+    async updateWalletDecremente(id, amount){
+        const [ret] = await db('players').where({id: id}).decrement('wallet',amount).returning('id');
+        return ret;
+    }
 
 }
 
