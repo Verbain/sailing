@@ -42,7 +42,7 @@ app.post('/create-checkout-session',createCheckout);
 app.post('/webhook', bodyParser.raw({type: 'application/json'}),handleEvent);
 
 
-
+//RIOT API
 app.get('/api/summonername/:username',context(),getSummonerIdWithName,serialization );
 app.get('/api/ingame/:nameid',context(),getMatchId,serialization );
 app.get('/api/result/:gameid',context(),getMatchResult,serialization );

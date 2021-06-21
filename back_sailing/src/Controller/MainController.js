@@ -1,8 +1,7 @@
 const axios = require('axios');
 const cron = require('node-cron');
 require('dotenv').config();
-const Mixpanel = require('mixpanel');
-const mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN);
+const playerController = require('./playerController');
 
 
 //Ne jamais mettre ce log en clair
@@ -24,8 +23,17 @@ function getSummonerIdWithName(req, res, next){
     return axios.get(`${process.env.URL}/lol/summoner/v4/summoners/by-name/${req.params.username}`,{headers: {
         'X-Riot-Token': `${process.env.API_KEY}`}})
         .then(r=> {
-            console.log(r);
             res.return.response= r.data;
+            const payload = {
+                name:r.data.name.toLowerCase(),
+                riotID:r.data.id
+            }
+            //store in DB riot accountId
+            axios.post(`${process.env.HEADER_PATH}/api/updateRiotID`,payload).then(r=>{
+                console.log('riot id updated with ')
+            }, (err) => {
+                console.log(err);
+            })
             return next();
         })
         .catch(error => {
