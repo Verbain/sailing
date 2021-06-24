@@ -48,7 +48,7 @@ function AddPlayer(props) {
                 console.log('playerData :', playerData)
                 const playerID = { playerID : playerData[0].id, teamID : team.id}
                 await axios.post('/api/addPlayerInTeam', playerID);
-                alert(`Joueur ajouter à l'équipe ${team.team_name}. `)
+                alert(`Joueur ajouté à l'équipe ${team.team_name}. `)
                 window.location = '/teams'
             
             }
