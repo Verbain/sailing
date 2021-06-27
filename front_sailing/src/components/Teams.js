@@ -25,7 +25,7 @@ function CreateTeam() {
                         />
                     </a>
                     <div className="div-team-description">
-                        <h5>Créer une équipe</h5>
+                        Créer une équipe
                     </div>
                 </div>
             </div>

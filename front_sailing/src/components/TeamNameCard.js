@@ -8,7 +8,7 @@ function TeamNameCard(props) {
         <div>
 
                 <div class="div-match-1">
-                    {teamName.team_name}
+                    ÉQUIPE : {teamName.team_name.toLocaleUpperCase()}
                 </div>
 
         </div>
