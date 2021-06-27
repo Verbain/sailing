@@ -170,16 +170,12 @@
   }
 
   #burger{
-    display: flex;
-    justify-content: flex-end;
-    padding: 5px;
-    height: 50px;
+    display: none;
   }
 
   #cross{
-    display: flex;
-    justify-content: flex-end;
-    padding: 5px;
+    display: none;
+
   }
 
       /* MOBILE */
@@ -218,6 +214,18 @@
     .iconify-burger{
       content: url('https://api.iconify.design/radix-icons:hamburger-menu.svg?height=15');
       vertical-align: -0.125em;
+    }
+
+    #burger{
+      display: flex;
+      justify-content: flex-end;
+      padding: 5px;
+    }
+
+    #cross{
+      display: flex;
+      justify-content: flex-end;
+      padding: 5px;
     }
 
   }
