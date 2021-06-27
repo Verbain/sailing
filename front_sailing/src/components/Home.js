@@ -8,6 +8,8 @@ function Home() {
     const[data, setData] = useState([]);
     const[data2, setData2 ] = useState([]);
     const[dataTeam, setDataTeam ] = useState([]);
+    const matchStates = ["recherche", "cours"];
+    const [matchState, setMatchState] = useState('recherche');
     
     useEffect(() => {
         axios.get('/api/gamesWithOpponent').then((res) => setData(res.data));
@@ -18,19 +20,29 @@ function Home() {
     return(
         
         <div class="div-home-0">
-             <div class="div-home-1">
-                <div class="div-home-2-bis">
-                    <h2> Recherche de match </h2>
-                    <div class="h2-place"></div>
-                    <div>
-                        {data2.map((matchbis) =>(
-                            <MatchCardBis dataTeam={dataTeam} matchbis={matchbis} key={matchbis.id}/>
-                        ))}
-                    </div>
-                </div>       
-            </div>
-            <div class="div-home-1">
-                <div class="div-home-2">
+            {matchStates.map(matchState => (
+                <button 
+                    type="button" 
+                    key={matchState} 
+                    onClick={() => setMatchState(matchState)}
+                    >
+                    {matchState}
+                </button>
+            ))}
+            <div>
+                {matchState === 'recherche' && (
+                    <div class="div-home-2-bis">
+                        <h2> Recherche de match </h2>
+                        <div class="h2-place"></div>
+                        <div>
+                            {data2.map((matchbis) =>(
+                                <MatchCardBis dataTeam={dataTeam} matchbis={matchbis} key={matchbis.id}/>
+                            ))}
+                        </div>
+                    </div> 
+                )}
+                {matchState === 'cours' && (
+                    <div class="div-home-2">
                     <h2> Match en cours </h2>
                     <div class="h2-place"></div>
                     <div>
@@ -38,7 +50,14 @@ function Home() {
                             <MatchCard match={match} key={match.id}/>
                         ))}
                     </div>
-                </div>       
+                </div>
+                )}
+            </div>
+            <div class="div-home-1">
+                
+            </div>
+            <div class="div-home-1">
+                   
             </div>
         </div>
         
@@ -46,3 +65,4 @@ function Home() {
 }
 
 export default Home;
+

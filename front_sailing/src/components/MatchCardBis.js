@@ -21,7 +21,7 @@ function MatchCardBis(props) {
     
     const onSubmit = (data) => {
         const teamOpponent = { id : matchbis.id, opponent : data.teamID }
-        if(!(matchbis.team_1==data.teamID) && isAuthenticated === true){
+        if(!(matchbis.team_1===data.teamID) && isAuthenticated === true){
             axios.post('/api/updateOpponent', teamOpponent);
             window.location = "/"
         } else {

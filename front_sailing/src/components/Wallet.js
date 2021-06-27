@@ -6,7 +6,7 @@ function Wallet(props){
     return(
         
         <div>
-            {wallet.wallet} SC
+            {wallet.wallet}
         </div>
     );
 }

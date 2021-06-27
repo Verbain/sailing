@@ -32,7 +32,7 @@ function Profile() {
                 <div class="div-profile-1">
                     <img
                         src={picture}
-                        alt="image"
+                        alt="ceci est l'image de profil"
                         class="profile-img"
                     />
                 </div>

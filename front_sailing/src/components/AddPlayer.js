@@ -13,7 +13,7 @@ function AddPlayer(props) {
 
             console.log('teamComp : ', teamComp)
             teamComp.forEach( teamCompID => {
-                if(teamCompID.pseudo==data.pseudo && !remove){
+                if(teamCompID.pseudo===data.pseudo && !remove){
                     axios.get(`/api/removePlayerInTeam/${teamCompID.id}`);
                     alert(`Joueur supprimer de l'équipe ${team.team_name}. `)
                     remove = true;
@@ -33,7 +33,7 @@ function AddPlayer(props) {
         
         teamComp.map((tc) => 
                {
-                if(data.pseudo==tc.pseudo){
+                if(data.pseudo===tc.pseudo){
                     alert(`Impossible, le joueur est déjà dans l'équipe ${team.team_name}.`)
                     isPresent = true;
 

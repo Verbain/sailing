@@ -6,7 +6,6 @@
     background-color: #282c34;
     min-height: 100vh;
     font-size: calc(10px + 2vmin);
-    color: white;
   
   }
   
@@ -15,7 +14,7 @@
   }
   
   .nav-space {
-    height: 65px;
+    height: 100px;
   }
   
   .spinner {
@@ -32,16 +31,88 @@
   }
   
   /* ------------------ NAV ------------------ */
+    /* PC */
+  .r-link{
+    display: var(--rLinkDisplay, inline-flex) !important;
+  }
   
-  .nav-bar {
+  .r-link[href]{
+    color: var(--rLinkColor) !important;
+    text-decoration: var(--rLinkTextDecoration, none) !important;
+  }
+  
+  .r-list{
+    padding-left: var(--rListPaddingLeft, 0) !important;
+    margin-top: var(--rListMarginTop, 0) !important;
+    margin-bottom: var(--rListMarginBottom, 0) !important;
+    list-style: var(--rListListStyle, none) !important;
+  }
+
+  .menu__link:focus{
+    font-weight: 600;
+  }
+
+
+  .menu:hover .menu__link:not(:hover){
+    --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, .35));
+  }
+
+  
+  .menu{
+    background-color: var(--menuBackgroundColor, #f0f0f0);
+    box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
     z-index: 1;
-    background-color: #000;
-    height: 60px ;
-    width: 100%;
     position: fixed;
-    display: flex;
-    align-content: center;
+    width: 100%;
+  }
   
+  .menu__list{
+    display: flex;  
+  }
+  
+  .menu__link{
+    padding: var(--menuLinkPadding, 1.5rem 2.5rem);
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+
+  .text-underlined{
+    position: relative;
+    overflow: hidden;
+  
+    will-change: color;
+    transition: color .25s ease-out;  
+  }
+  
+  .text-underlined::before, 
+  .text-underlined::after{
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: var(--textUnderlinedLineColor, currentColor);
+  
+    will-change: width;
+    transition: width .1s ease-out;
+  
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .text-underlined::before{
+    left: 50%;
+    transform: translateX(-50%); 
+  }
+  
+  .text-underlined::after{
+    right: 50%;
+    transform: translateX(50%); 
+  }
+  
+  .text-underlined:hover::before, 
+  .text-underlined:hover::after{
+    width: 100%;
+    transition-duration: .2s;
   }
   
   .nav-item {
@@ -49,29 +120,110 @@
     align-items: center;
   }
   
-  .nav-item a:hover  {
-    background-color: #282c34;
-  }
-  
-  .nav-item-text {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color : #ffff;
-    padding: 15px;
-  }
-  
   .nav-item-wallet{
-    color : #ffff;
     padding: 15px;
     display: flex;
     justify-content: flex-end;
+
   }
   
+  .iconify-wallet{
+    content: url('https://api.iconify.design/grommet-icons:money.svg?height=24');
+    vertical-align: -0.125em;
+    margin-right: 10px;
+  }
+
   .nav-button {
     display: flex;
     height: 40px;
   }
+
+  .iconify-burger{
+    content: url('https://api.iconify.design/radix-icons:hamburger-menu.svg?height=15');
+    vertical-align: -0.125em;
+    display: none;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .iconify-login{
+    content: url('https://api.iconify.design/bx:bx-log-in.svg?color=%23ffff&height=24');
+    vertical-align: -0.125em;
+    display: flex;
+  }
+
+  .iconify-logout{
+    content: url('https://api.iconify.design/bx:bx-log-out.svg?color=%23ffff&height=24');
+    vertical-align: -0.125em;
+    display: flex;
+  }
+
+  .iconify-cross{
+    content: url('https://api.iconify.design/akar-icons:cross.svg?height=24');
+    vertical-align: -0.125em;
+    display: none;
+    width: 30px;
+    height: 30px;
+  }
+
+  #burger{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    height: 50px;
+  }
+
+  #cross{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+  }
+
+      /* MOBILE */
+  @media only screen and (max-width: 375px) {
+    .nav-space{
+      display: none;
+    }
+
+    .iconify-burger{
+      display: block;
+    }
+
+    .menu{
+      background-color: var(--menuBackgroundColor, #f0f0f0);
+      box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+      z-index: 1;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 0;
+      height: 80%;
+      transition: 0.5s;
+    }
+    
+    .menu__list{
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .menu__link{
+      padding: var(--menuLinkPadding, 1.5rem 2.5rem);
+      font-weight: 150;
+      text-transform: uppercase;
+    }
+
+    .iconify-burger{
+      content: url('https://api.iconify.design/radix-icons:hamburger-menu.svg?height=15');
+      vertical-align: -0.125em;
+    }
+
+  }
+  
+  
+
   
   /* ------------------ HOMEPAGE ------------------ */
   
@@ -87,7 +239,6 @@
   .div-home-1 {
     display: flex;
     justify-content: center;
-    margin-top: 40px;  
   }
   
   .div-home-2 {
@@ -173,9 +324,7 @@
   
   .div-shop {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;  
-  
+    justify-content: center;  
   }
   
   .div-shop-container{
@@ -240,7 +389,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
     background-color: #13151a;
     border-radius: 10px;
     box-shadow: 2px 2px 10px 2px #13151a;
