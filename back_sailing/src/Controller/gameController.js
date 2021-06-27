@@ -118,6 +118,16 @@ class gameController{
             console.log(err);
         }
     }
+    async getAllGamesWithResultByTeam(req,res,teamID){
+        teamID = req.params.teamId
+        try {
+            await db.select().table('games').where({team_1 : teamID}).whereNot({result : null}).orWhere({team_2 : teamID}).whereNot({result : null}).then(function (ret){
+                res.status(201).json(ret);
+            });
+        } catch (err){
+            console.log(err);
+        }
+    }
     async removeGame(req,res,gameID){
         gameID = req.params.gameId;
         try {
