@@ -19,7 +19,7 @@ const teamController = require('./src/Controller/teamController');
 const gameController = require('./src/Controller/gameController');
 const teamCompositionController = require('./src/Controller/teamCompositionController');
 const {handleEvent,createCheckout} = require('./src/Controller/stripeController');
-const {MatchEnd, setMatchId} = require('./src/Controller/operationController');
+const {MatchEnd, setMatchId, getAllMatchOfTeam} = require('./src/Controller/operationController');
 
 //cron.schedule('*/5 * * * * * ', ()=>{
 //    console.log("cron schedule")
@@ -83,7 +83,7 @@ app.get('/api/removePlayerInTeam/:compositionId',teamCompositionController.remov
 app.post('/api/addPlayerInTeam',teamCompositionController.addPlayerInTeam);
 app.post('/api/addCaptain',teamCompositionController.newTeam);
 app.post('/api/updateStatus',teamCompositionController.updateStatus);
-app.get('/api/teamComposition/:playerId',teamCompositionController.getTeamOfPlayer);
+app.get('/api/allTeamOfPlayer/:playerId',teamCompositionController.getTeamOfPlayer);
 
 
 
@@ -92,6 +92,8 @@ app.get('/api/teams_games',gameController.getAllGameWithTeamName);
 app.get('/api/teamName/:gameId',gameController.getTeamNameByMatch);
 app.get('/api/matchEnd/:gameId',MatchEnd);
 app.get('/api/setGameId/:gameId',setMatchId);
+app.get('/api/historique/:teamId',gameController.getAllGamesWithResultByTeam);
+app.get('/api/historiquePlayer/:playerId',getAllMatchOfTeam);
 
 
 app.use(express.static(path.join(__dirname, '..', 'front_sailing', 'build')));

@@ -102,4 +102,25 @@ function setMatchId (req,res,gameId){
         })
     })
 }
-module.exports ={MatchEnd, setMatchId}
+function getAllMatchOfTeam(req,res,playerId){
+    playerId = req.params.playerId
+    let result = [];
+    axios.get(`${process.env.HEADER_PATH}/api/allTeamOfPlayer/${playerId}`).then(r=>{
+        for(let i=0; i<r.data.length ; i++){
+            idTeam = r.data[i].id_team
+            axios.get(`${process.env.HEADER_PATH}/api/historique/${idTeam}`).then( r_2=>{
+                for(let y=0; y<r_2.data.length ; y++){
+                    result.push(r_2.data[y]);
+                }
+            })
+        }
+    })
+        setTimeout(()=>{
+            return res.status(201).json({
+            status: 201,
+            response : result
+    })
+        },500)
+
+}
+module.exports ={MatchEnd, setMatchId, getAllMatchOfTeam}
