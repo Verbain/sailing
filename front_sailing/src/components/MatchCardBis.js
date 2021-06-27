@@ -21,7 +21,7 @@ function MatchCardBis(props) {
     
     const onSubmit = (data) => {
         const teamOpponent = { id : matchbis.id, opponent : data.teamID }
-        if(!(matchbis.team_1==data.teamID) && isAuthenticated === true){
+        if(!(matchbis.team_1===data.teamID) && isAuthenticated === true){
             axios.post('/api/updateOpponent', teamOpponent);
             window.location = "/"
         } else {
@@ -45,7 +45,7 @@ function MatchCardBis(props) {
                             <SelectTeam teams={teams} key={teams.id}/>
                         ))}
                     </select>
-                    <button type="submit" class="matchbis-button"> ↩ </button>
+                    <button type="submit" class="btn-2"> <span class="iconify-enter" data-icon="fluent:arrow-enter-left-20-regular" data-inline="false"></span> </button>
                 </form>
                 </div>
             </div>

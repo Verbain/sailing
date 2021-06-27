@@ -13,8 +13,7 @@ const LoginButton = () => {
         variant="primary"
         className="btn-margin"
         >
-        Se connecter
-        
+        <span class="iconify-login" data-icon="bx:bx-log-in" data-inline="false" ></span>        
         </Button>
     );
 };

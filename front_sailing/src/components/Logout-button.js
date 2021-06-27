@@ -14,8 +14,7 @@ const LogoutButton = () => {
         className="btn-margin"
         
         >
-        Se déconnecter
-        
+        <span class="iconify-logout" data-icon="bx:bx-log-out" data-inline="false" ></span>        
         </Button>
     );
 };
