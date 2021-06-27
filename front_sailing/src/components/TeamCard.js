@@ -23,8 +23,8 @@ function TeamCard(props) {
         <div class="team">
             <div class="teamcard">
                 <div class="teamcard-info">
-                    <p> {team.team_name} </p>
-                    <button onClick={onSubmitDelete} type="submit">X</button>
+                    <p> {team.team_name.toLocaleUpperCase()} </p>
+                    <button class="btn-team-cross" onClick={onSubmitDelete} type="submit"><span class="iconify-team-cross" data-icon="akar-icons:cross" data-inline="false"></span></button>
 
                 </div>
                 <div class="teamcard-list">

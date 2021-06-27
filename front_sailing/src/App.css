@@ -3,7 +3,7 @@
   }
   
   .App-header {
-    background-color: #282c34;
+    background-color: #ffff;
     min-height: 100vh;
     font-size: calc(10px + 2vmin);
   
@@ -128,7 +128,7 @@
   }
   
   .iconify-wallet{
-    content: url('https://api.iconify.design/grommet-icons:money.svg?height=24');
+    content: url('https://api.iconify.design/simple-icons:riotgames.svg?height=24');
     vertical-align: -0.125em;
     margin-right: 10px;
   }
@@ -230,74 +230,103 @@
 
   
   /* ------------------ HOMEPAGE ------------------ */
-  
+  .btn-home{
+    display: flex;
+
+  }
+
   .div-home-0 {
     height: (100vh - 65px);
     display: flex;
     justify-content: space-around;
-
-
-    
+    margin-top: 20px;
   }
   
   .div-home-1 {
     display: flex;
     justify-content: center;
   }
+
+  .div-home-btn{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+  }
   
   .div-home-2 {
-    background-color: #13151a;
-    width: 700px;
-    height: 500px;
+    width: 1000px;
+    height: 600px;
     overflow: hidden;
     overflow-y: scroll;
-    border: solid;
-    border-radius: 10px;
-    border-width: 5px;
-    border-color: black;
-    box-shadow: 5px 5px 10px 5px #13151a;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 0px 30px 13px 30px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 10px 10px #66f2d5;
+
   }
 
   .div-home-2-bis {
-    background-color: #13151a;
-    width: 500px;
-    height: 500px;
+    width: 1000px;
+    height: 600px;
     overflow: hidden;
     overflow-y: scroll;
-    border: solid;
-    border-radius: 10px;
-    border-width: 5px;
-    border-color: black;
-    box-shadow: 5px 5px 10px 5px #13151a;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 0px 30px 13px 30px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 10px 10px #66f2d5;
 
 }
   
   .div-home-2 h2 {
-    z-index: 0;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    background-color: black;
-    width: 695px;
-    height: 50px;
+    height: 70px;
+    width: 938px;
+    z-index: 1;
+    position: fixed;
+    font-size: 40px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 30px;
+    background-color: #ffff;
+    outline: 0;
+    border-bottom: solid;
+    border-color: black;
   }
 
   .div-home-2-bis h2 {
-    z-index: 0;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    background-color: black;
-    width: 495px;
-    height: 50px;
+    height: 70px;
+    width: 938px;
+    z-index: 1;
+    position: fixed;
+    font-size: 40px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 30px;
+    background-color: #ffff;
+    outline: 0;
+    border-bottom: solid;
+    border-color: black;
   }
   
   .h2-place {
-    height: 50px;
+    height: 70px;
+    background-color: #ffff;
+
   }
   
   .div-match-0 {
-    background-color: #13151a;
+    background-color: rgba(0, 0, 0, 0);
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -312,23 +341,33 @@
     display: flex;
     font-size: 13px;
   }
-
-  .matchbis-button {
-    width: 40px;
-    height: 40px;
-  }
   
   .matchbis-form {
     display: flex;
     justify-content: space-around;
   }
   
+  .iconify-play{
+    content: url('https://api.iconify.design/clarity:play-line.svg?height=16');
+    vertical-align: -0.125em;
+  }
+
+  .iconify-refresh{
+    content: url('https://api.iconify.design/clarity:refresh-line.svg?height=16');
+    vertical-align: -0.125em;
+  }
+
+  .iconify-enter{
+    content: url('https://api.iconify.design/fluent:arrow-enter-left-20-regular.svg?height=20');
+    vertical-align: -0.125em;
+  }
   
   /* ------------------ SHOP ------------------ */
   
   .div-shop {
     display: flex;
     justify-content: center;  
+    margin-top: 20px;
   }
   
   .div-shop-container{
@@ -337,11 +376,16 @@
     align-items: center;
     width: 250px;
     height: 250px;
-    padding: 15px;
-  
-    background-color: #13151a;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px 2px #13151a;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 0px 30px 13px 30px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 10px 10px #ffe54c;
   
   }
   
@@ -356,34 +400,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5px;
+    padding: 10px;
   
   }
   
-  .sailing-coin-img {
+  .iconify-shop {
+    content: url('https://api.iconify.design/simple-icons:riotgames.svg?height=24');
+    vertical-align: -0.125em;
     display: flex;
     align-self: center;
+    margin-top: 5px;
     width: 100px;
     height: 100px;
   }
-  
-  #checkout-button {
-    border-radius: 10px;
-    background-color: white;
-    border: none;
-    
-  }
-  
-  #checkout-button:hover {
-    background-color: rgb(139, 139, 139);
-  
-  }
-  
+
+
+
   /* ------------------ PROFILE ------------------ */
   
   .profile-container {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
   
   }
   
@@ -393,10 +431,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #13151a;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px 2px #13151a;
-    padding: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 0px 30px 13px 30px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 10px 10px #ffe54c;
+
   
     
   
@@ -417,10 +464,10 @@
   }
   
   .div-profile-info {
-    background-color: white;
     padding: 5px;
     color: #000;
-    border-radius: 10px;
+    border-bottom: solid;
+    border-color: black;
   }
   
   .profile-img {
@@ -432,25 +479,32 @@
   /* ------------------ TEAMS ------------------ */
   
   .teams{
-    padding-top: 50px;
+    margin-top: 20px;
     display: grid;
     justify-content: center;
-    grid-template-columns: 300px 300px 300px;
-    grid-template-rows: 300px 300px 300px;
+    grid-template-columns: 350px 350px 350px;
+    grid-template-rows: 350px 350px 350px;
   
   }
   
   .div-team-1  {
-    background-color: #13151a;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0px 10px 0px 10px;
-    width: 250px;
-    height: 250px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px 2px #13151a;
+    width: 300px;
+    height: 300px;
+    
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 0px 30px 13px 30px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 10px 10px #dcbaff;
   }
   
   .add-team {
@@ -459,15 +513,13 @@
     justify-content: center;
     width: 100px;
     height: 100px;
-    border-radius: 300px;
     border: solid;
     border-color: white;
     background-color: white;
   }
   
   .add-team:hover {
-    border-color: rgb(139, 139, 139);
-    background-color: rgb(139, 139, 139);
+    background-color: #f0f0f0;
   }
   
   .add-team-img {
@@ -482,14 +534,21 @@
   }
   
   .teamcard {
-    background-color: #13151a;
     display: flex;
     flex-direction: column;
-    padding: 0px 10px 0px 10px;
-    width: 250px;
-    height: 250px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px 2px #13151a;
+    width: 300px;
+    height: 300px;
+    
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 0px 30px 13px 30px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 10px 10px #dcbaff;
   }
   
   .teamcard-info {
@@ -505,6 +564,18 @@
   
   .teamcard-list li {
     margin-top: 5px;
+  }
+
+  .addplayer-pseudo{
+    border-bottom: thick;
+    border-color:black;
+  }
+
+  .iconify-team-cross{
+      content: url('https://api.iconify.design/akar-icons:cross.svg?height=24');
+      vertical-align: -0.125em;
+      width: 30px;
+      height: 30px;
   }
   
   /* ------------------ FORM CREATE TEAM/MATCH ------------------ */
@@ -522,13 +593,37 @@
   }
   
   .div-home-2-form {
-    background-color: #13151a;
     width: 700px;
     height: 500px;
     border-width: 5px;
-    box-shadow: 5px 5px 10px 5px #13151a;
-    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 0px 30px 13px 30px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 10px 10px #66f2d5;
   }
+
+  .div-home-2-teamform {
+    width: 700px;
+    height: 500px;
+    border-width: 5px;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 0px 30px 13px 30px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 10px 10px #dcbaff;
+  }
+  
 
   .addplayer-id {
     overflow: hidden;
@@ -536,3 +631,71 @@
     height: 120px;
 
   }
+
+  .form-button{
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  /* ----- BUTON ----- */
+
+  .slide {
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 30px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 50px;
+    font-family: inherit;
+    box-shadow: 10px 10px #66f2d5;
+  }
+
+  .btn-2, .btn-3, .btn-4{
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .btn-2{
+    width: 40px;
+    height: 30px;
+  }
+  .btn-3{    
+    width: 40px;
+    height: 40px;
+  }
+
+  .btn-4{
+    width: 110px;
+    height: 30px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-3:hover, .btn-2:hover, .btn-4:hover, .slide:hover, .form-button:hover, .iconify-enter:hover{    
+    background-color: #f0f0f0;
+  }
+  
+  .btn-team-cross{
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  

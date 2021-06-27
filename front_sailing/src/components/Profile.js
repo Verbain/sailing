@@ -38,23 +38,23 @@ function Profile() {
                 </div>
                 <div class="div-profile-2">
                     <div class="div-profile-info">
-                        <h2>Pseudo : {nickname}</h2>
+                        <label>PSEUDO : {nickname}</label>
                     </div>
                     <div class="div-profile-info">
-                        <h2>Adresse e-mail : {email}</h2>
+                        <label>ADRESSE E-MAIL : {email}</label>
                     </div>
                     <div class="div-profile-info">
                         <form onSubmit={handleSubmit(onSubmitOpGg)}>
-                            <label> opgg : </label>
+                            <label> OP.GG : </label>
                             <input {...register("opGg")} />
-                            <button type="submit">Enregistrer</button>
+                            <button class="btn-2" type="submit"><span class="iconify-enter" data-icon="fluent:arrow-enter-left-20-regular" data-inline="false"></span></button>
                         </form>
                     </div>
                     <div class="div-profile-info">
                     <form onSubmit={handleSubmit(onSubmitSummonerName)}>
-                        <label> summoner name : </label>
+                        <label> NOM D'INVOCATEUR : </label>
                         <input {...register("summonerName")} />
-                        <button type="submit">Enregistrer</button>
+                        <button class="btn-2" type="submit"><span class="iconify-enter" data-icon="fluent:arrow-enter-left-20-regular" data-inline="false"></span></button>
                     </form>
                     </div>
                 </div>

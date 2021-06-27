@@ -60,7 +60,7 @@ function AddPlayer(props) {
         <div>
             <div class="addplayer-id">
             {teamComp.map((tc) =>(
-                <div>
+                <div class="addplayer-pseudo">
                     {tc.pseudo}
                 </div>
                 
@@ -68,8 +68,8 @@ function AddPlayer(props) {
             </div>
             <form >
                 <input {...register("pseudo")} />
-                <button onClick={handleSubmit(onSubmit)} type="submit">Ajouter</button>
-                <button onClick={handleSubmit(onSubmitDelete)} type="submit">Supprimer</button>
+                <button class="btn-4" onClick={handleSubmit(onSubmit)} type="submit">Ajouter</button>
+                <button class="btn-4" onClick={handleSubmit(onSubmitDelete)} type="submit">Supprimer</button>
             </form>
         </div>
         

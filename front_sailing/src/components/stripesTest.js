@@ -8,17 +8,13 @@ const ProductDisplay = ({ handleClick }) => (
     <div class="div-shop">
         <div class="div-shop-container">
             <div class="div-shop-product">
-                <img
-                    src="https://www.pinclipart.com/picdir/big/53-537072_riot-games-fist-bump-clipart.png"
-                    alt="sailing-coin-logo"
-                    class="sailing-coin-img"
-                />
+            <span class="iconify-shop" data-icon="simple-icons:riotgames" data-inline="false"></span>
                 <div className="div-shop-description">
                     <h3>1 SC</h3>
                     <h5>1€</h5>
                 </div>
             </div>
-            <button type="button" id="checkout-button" role="link" onClick={handleClick}>
+            <button class="btn-4" type="button" id="checkout-button" role="link" onClick={handleClick}>
                 Acheter
             </button>
         </div>

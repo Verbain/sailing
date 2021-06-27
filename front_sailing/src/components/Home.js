@@ -8,8 +8,8 @@ function Home() {
     const[data, setData] = useState([]);
     const[data2, setData2 ] = useState([]);
     const[dataTeam, setDataTeam ] = useState([]);
-    const matchStates = ["recherche", "cours"];
-    const [matchState, setMatchState] = useState('recherche');
+    const matchStates = ["Recherche de match", "Match en cours"];
+    const [matchState, setMatchState] = useState('Recherche de match');
     
     useEffect(() => {
         axios.get('/api/gamesWithOpponent').then((res) => setData(res.data));
@@ -20,17 +20,21 @@ function Home() {
     return(
         
         <div class="div-home-0">
-            {matchStates.map(matchState => (
-                <button 
-                    type="button" 
-                    key={matchState} 
-                    onClick={() => setMatchState(matchState)}
-                    >
-                    {matchState}
-                </button>
-            ))}
+            <div class="div-home-btn">
+                {matchStates.map(matchState => (
+                    <button 
+                        type="button" 
+                        class="slide"
+                        key={matchState} 
+                        onClick={() => setMatchState(matchState)}
+                        >
+                        <div>{matchState}</div>
+                        <i class="icon-arrow-right"></i>
+                    </button>
+                ))}
+            </div>
             <div>
-                {matchState === 'recherche' && (
+                {matchState === 'Recherche de match' && (
                     <div class="div-home-2-bis">
                         <h2> Recherche de match </h2>
                         <div class="h2-place"></div>
@@ -41,7 +45,7 @@ function Home() {
                         </div>
                     </div> 
                 )}
-                {matchState === 'cours' && (
+                {matchState === 'Match en cours' && (
                     <div class="div-home-2">
                     <h2> Match en cours </h2>
                     <div class="h2-place"></div>
@@ -52,12 +56,6 @@ function Home() {
                     </div>
                 </div>
                 )}
-            </div>
-            <div class="div-home-1">
-                
-            </div>
-            <div class="div-home-1">
-                   
             </div>
         </div>
         

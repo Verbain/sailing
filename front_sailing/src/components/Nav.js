@@ -52,8 +52,7 @@ function Nav() {
                         <Link to='/teams' class="menu__link r-link text-underlined"> MES ÉQUIPES </Link>
                         <Link to='/shop' class="menu__link r-link text-underlined"> BOUTIQUE</Link>
                         <div class="menu__link r-link">
-                        <span class="iconify-wallet" data-icon="grommet-icons:money" data-inline="false"></span>
-                            {data.map((wallet) =>(
+                        <span class="iconify-wallet" data-icon="simple-icons:riotgames" data-inline="false"></span>                            {data.map((wallet) =>(
                                 <Wallet wallet={wallet} key={wallet}/>
                             ))} 
                         </div>
