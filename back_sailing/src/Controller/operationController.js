@@ -5,7 +5,7 @@ function MatchEnd (req,res,gameId){
     gameId = req.params.gameId
     //get game
     return axios.get(`${process.env.HEADER_PATH}/api/game/${gameId}`).then(r => {
-        if(r.data.result === ""){
+        if(r.data.result === "" || r.data.result === null){
         //get match result
         axios.get(`${process.env.URL}/lol/match/v4/matches/${r.data.riot_game_id}`,{headers: {
                 'X-Riot-Token': `${process.env.API_KEY}`}})

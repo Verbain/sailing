@@ -18,10 +18,12 @@ function Profile() {
 
     const onSubmitSummonerName = (data) => {
         const playerSummonerName = { pseudo : nickname, summonerName : data.summonerName, email: email}
+        console.log('~ summonerName :', playerSummonerName.summonerName)
+        console.log('~ playerSummonerName :', playerSummonerName)
         axios.post('/api/newPlayer', playerSummonerName)
+        axios.get(`/api/summonername/${playerSummonerName.summonerName}`)
         window.location = '/profile'
-    }
-    
+    }   
 
     return(
         
