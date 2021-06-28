@@ -27,12 +27,11 @@ function MatchCardBis(props) {
             axios.get(`/api/getPlayerByEmail/${email}`).then((res) => {
                 axios.post('/api/updateOpponent', teamOpponent).then((resUpdateOpp) => {
                     const payload = { id : res.data.id, amount : matchbis.mise }
-                    axios.post(`/api/updateWalletDecremente`, payload)
+                    axios.post(`/api/updateWalletDecremente`, payload).then(() => { window.location = "/"})
                 })
     
             })
 
-            window.location = "/"
         } else {
             alert("Erreur, vous devez être connecter pour rejoindre un match avec votre équipe, deplus une même équipe ne peux s'affronter.")
         }
