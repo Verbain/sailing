@@ -178,57 +178,6 @@
 
   }
 
-      /* MOBILE */
-  @media only screen and (max-width: 375px) {
-    .nav-space{
-      display: none;
-    }
-
-    .menu{
-      background-color: var(--menuBackgroundColor, #f0f0f0);
-      box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
-      z-index: 1;
-      position: fixed;
-      right: 0;
-      top: 0;
-      width: 0;
-      height: 90%;
-      transition: 0.5s;
-    }
-    
-    .menu__list{
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .menu__link{
-      padding: var(--menuLinkPadding, 1.5rem 2.5rem);
-      font-weight: 150;
-      text-transform: uppercase;
-    }
-
-    .iconify-burger{
-      content: url('https://api.iconify.design/radix-icons:hamburger-menu.svg?height=15');
-      vertical-align: -0.125em;
-    }
-
-    #burger{
-      display: flex;
-      justify-content: flex-end;
-      padding: 5px;
-    }
-
-    #cross{
-      display: flex;
-      justify-content: flex-end;
-      padding: 5px;
-    }
-
-  }
-  
-  
-
-  
   /* ------------------ HOMEPAGE ------------------ */
   .btn-home{
     display: flex;
@@ -331,8 +280,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: solid;
-    border-color: black;
+    border-bottom: ridge;
     padding: 50px;
   
   }
@@ -466,8 +414,7 @@
   .div-profile-info {
     padding: 5px;
     color: #000;
-    border-bottom: solid;
-    border-color: black;
+    border-bottom: ridge;
   }
   
   .profile-img {
@@ -488,6 +435,8 @@
   }
   
   .div-team-1  {
+    text-decoration: none;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -507,25 +456,19 @@
     box-shadow: 10px 10px #dcbaff;
   }
   
-  .add-team {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    border: solid;
-    border-color: white;
-    background-color: white;
-  }
-  
-  .add-team:hover {
+  .div-team-1:hover {
     background-color: #f0f0f0;
+    color: black;
   }
   
   .add-team-img {
     width: 60px;
-    height: 60px;
-  
+    height: 60px;  
+  }
+
+  .iconify-plus{
+    content: url('https://api.iconify.design/fluent:people-team-add-24-filled.svg?height=24');
+    vertical-align: -0.125em;
   }
   
   .div-team-description {
@@ -567,8 +510,7 @@
   }
 
   .addplayer-pseudo{
-    border-bottom: thick;
-    border-color:black;
+    border-bottom: inset;
   }
 
   .iconify-team-cross{
@@ -686,6 +628,7 @@
     margin-top: 5px;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .btn-3:hover, .btn-2:hover, .btn-4:hover, .slide:hover, .form-button:hover, .iconify-enter:hover{    
@@ -693,9 +636,239 @@
   }
   
   .btn-team-cross{
-    width: 40px;
+    width: 10px;
     height: 40px;
     border: none;
     background-color: rgba(0, 0, 0, 0);
   }
   
+
+/* --------------------------- MOBILE ---------------------------*/
+@media only screen and (max-width: 375px) {
+
+  /* ---- NAVBAR ---- */
+  .nav-space{
+    display: none;
+  }
+      
+  .menu{
+    background-color: var(--menuBackgroundColor, #f0f0f0);
+    box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+    z-index: 1;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 90%;
+    transition: 0.5s;
+    z-index: 3;
+  }
+          
+  .menu__list{
+    display: flex;
+    flex-direction: column;
+  }
+          
+  .menu__link{
+    padding: var(--menuLinkPadding, 1.5rem 2.5rem);
+    font-weight: 150;
+    text-transform: uppercase;
+  }
+      
+  .iconify-burger{
+    content: url('https://api.iconify.design/radix-icons:hamburger-menu.svg?height=15');
+    vertical-align: -0.125em;
+  }
+      
+  #burger{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+  }
+      
+  #cross{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+  }
+
+    /* ---- HOME ---- */
+
+    .div-home-0 {
+      height: (100vh - 65px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .div-home-2, .div-home-2-bis {
+      width: 355px;
+      height: 520px;
+      padding: 0px;
+      font-size: 13px;
+      margin: 5px;
+
+    }
+
+    .div-home-2 h2, .div-home-2-bis h2 {
+      height: 70px;
+      width: 353px;
+      font-size: 30px;
+    }
+
+    .div-home-btn {
+      height: 80px;
+      display: flex;
+      flex-direction: row;
+      margin-top: 1%;
+    }
+
+    .div-match-0 {
+      background-color: transparent;
+      height: 100px;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: ridge;
+      padding: 15px;
+      flex-direction: column;
+    }
+
+    .slide {
+      padding: 0px;
+      margin: 20px;
+      font-family: inherit;
+      box-shadow: 10px 10px #66f2d5;
+    }
+
+    .form-button, .slide {
+      font-size: 13px;
+      padding: 6px;
+    }
+    /* ---- PROFILE ---- */
+
+    .profile-container{
+      display: flex;
+      justify-content: unset;
+      margin-top: 10%;
+    }
+    .div-profile-0 {
+      width: 355px;
+      height: 590px;
+      display: flex;
+      flex-direction: column;
+      padding: 0px;
+      margin: 5px;
+
+    }
+
+    .div-profile-1 {
+      width: 355px;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .profile-img {
+      border-radius: 300px;
+      width: 200px;
+      height: 200px;
+    }
+
+    .div-profile-info {
+      padding: 5px;
+      color: #000;
+      border-color: none;
+      border-bottom: ridge;
+    }
+
+    .div-profile-2 {
+      width: 355px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      font-size: 13px;
+    }
+
+    .div-profile-info .btn-2 {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+    }
+    /* ---- CREATE MATCH ---- */
+  
+    .div-home-1 {
+      display: block;
+      margin-top: 5%;
+    }
+    .div-home-2-form, .div-home-2-teamform {
+      width: 355px;
+      height: 590px;
+      font-size: 13px;
+      padding: 0;
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form, .form-item {
+      width: 300px;
+    }
+
+    /* ---- TEAMS ---- */
+
+    .teams {
+      margin-top: 10%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .div-team-1 {
+      width: 355px;
+      height: 50px;
+      font-size: 13px;
+      padding: 0;
+      margin: 5px;
+      margin-bottom: 20px;
+    }
+
+    .add-team-img{
+      display: none;
+    }
+
+    .team{
+      margin: 5px;
+      margin-bottom: 20px;
+    }
+
+    .teamcard-list {
+      font-size: 13px;
+    }
+
+    .btn-4 {
+      width: 80px;
+      font-size: 13px;
+    }
+
+    .teamcard {
+      width: 355px;
+      height: 300px;
+    }
+
+    /* ---- SHOP ---- */
+
+    .div-shop{
+      display: block;
+      margin-top: 10%;
+    }
+
+    .div-shop-container {
+      width: 355px;
+      height: 250px;
+      font-size: 13px;
+      padding: 0 ;
+      margin: 5px;
+    }
+
+}

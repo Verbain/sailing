@@ -2,13 +2,20 @@ import React, { useState, useEffect } from 'react';
 import TeamCard from './TeamCard';
 import add from '../assets/add.png';
 import axios from 'axios';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
-function CreateTeam() {
+
+function Team() {
+
+    const { user } = useAuth0();
+    const { email } = user;
     const[data, setData] = useState([]);
     
     useEffect(() => {
-        axios.get('/api/teams').then((res) => setData(res.data));
+
+        axios.get(`/api/getPlayerByEmail/${email}`).then((res) => axios.get(`/api/allTeamOfPlayer/${(res.data.id)}`).then((res) => setData(res.data)));
+        
 
     }, []);
 
@@ -16,18 +23,11 @@ function CreateTeam() {
         
         <div class="teams">
             <div class="div-team-0">
-                <div class="div-team-1">
-                    <a class="add-team" href="/teams/createTeam">
-                        <img
-                            src={add}
-                            alt="+"
-                            class="add-team-img"
-                        />
-                    </a>
-                    <div className="div-team-description">
+                <a class="div-team-1" href="/teams/createTeam">
+                <span class="iconify-plus add-team-img add-team" data-icon="fluent:people-team-add-24-filled" data-inline="false"></span>                    <div className="div-team-description">
                         Créer une équipe
                     </div>
-                </div>
+                </a>
             </div>
             
             {data.map((team)=>(
@@ -37,4 +37,4 @@ function CreateTeam() {
     );
 }
 
-export default CreateTeam;
+export default Team;

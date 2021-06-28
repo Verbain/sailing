@@ -130,7 +130,7 @@ class playerController{
     async getPlayerByEmail(req,res, playerEmail){
         playerEmail = req.params.playerEmail
         try {
-            await db.select().table('players').where({email: playerEmail}).then(function (ret){
+            await db.select().table('players').where({email: playerEmail}).first().then(function (ret){
                 res.status(201).json(ret);
             });
         } catch (err){
