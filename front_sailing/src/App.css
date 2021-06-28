@@ -456,17 +456,6 @@
     box-shadow: 10px 10px #dcbaff;
   }
   
-  .add-team {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    border: solid;
-    border-color: white;
-    background-color: white;
-  }
-  
   .div-team-1:hover {
     background-color: #f0f0f0;
     color: black;
@@ -844,7 +833,7 @@
       margin-bottom: 20px;
     }
 
-    .add-team{
+    .add-team-img{
       display: none;
     }
 

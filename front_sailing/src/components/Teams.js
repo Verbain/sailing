@@ -24,7 +24,7 @@ function Team() {
         <div class="teams">
             <div class="div-team-0">
                 <a class="div-team-1" href="/teams/createTeam">
-                <span class="iconify-plus add-team-img" data-icon="fluent:people-team-add-24-filled" data-inline="false"></span>                    <div className="div-team-description">
+                <span class="iconify-plus add-team-img add-team" data-icon="fluent:people-team-add-24-filled" data-inline="false"></span>                    <div className="div-team-description">
                         Créer une équipe
                     </div>
                 </a>
