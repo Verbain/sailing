@@ -3,15 +3,27 @@ import axios from 'axios';
 import { useForm } from "react-hook-form";
 import SelectTeam from "./selectTeam";
 import mixpanel from 'mixpanel-browser';
+import { useAuth0 } from "@auth0/auth0-react";
+
 mixpanel.init('MIXPANEL_TOKEN');
 
 
 
 function MatchForm(props) {
+    const { user } = useAuth0();
+    const { email } = user;
+
     const {dataTeam}=props
     const { register, handleSubmit } = useForm();
+    
     const onSubmit = (data) => {
-        axios.post('/api/newGame', data);
+        axios.get(`/api/getPlayerByEmail/${email}`).then((res) => {
+            axios.post('/api/newGame', data).then((resNewGame) => {
+                const payload = { id : res.data.id, amount : resNewGame.data.data.mise }
+                axios.post(`/api/updateWalletDecremente`, payload)
+            })
+
+        })
         window.location = "/"
         mixpanel.track("Match created");
 

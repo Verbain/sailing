@@ -8,7 +8,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function MatchCardBis(props) {
     const { isAuthenticated } = useAuth0();
-
+    const { user } = useAuth0();
+    const { email } = user;
     const { matchbis } = props;
     const { dataTeam } = props;
     const [data, setData] = useState([]);
@@ -22,7 +23,15 @@ function MatchCardBis(props) {
     const onSubmit = (data) => {
         const teamOpponent = { id : matchbis.id, opponent : data.teamID }
         if(!(matchbis.team_1===data.teamID) && isAuthenticated === true){
-            axios.post('/api/updateOpponent', teamOpponent);
+            
+            axios.get(`/api/getPlayerByEmail/${email}`).then((res) => {
+                axios.post('/api/updateOpponent', teamOpponent).then((resUpdateOpp) => {
+                    const payload = { id : res.data.id, amount : matchbis.mise }
+                    axios.post(`/api/updateWalletDecremente`, payload)
+                })
+    
+            })
+
             window.location = "/"
         } else {
             alert("Erreur, vous devez être connecter pour rejoindre un match avec votre équipe, deplus une même équipe ne peux s'affronter.")

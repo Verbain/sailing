@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import TeamCard from './TeamCard';
-import add from '../assets/add.png';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 
