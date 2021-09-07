@@ -14,6 +14,7 @@ function MatchCardBis(props) {
     const { dataTeam } = props;
     const [data, setData] = useState([]);
 
+
     useEffect(() => {
         axios.get(`/api/teamName/${matchbis.id}`).then((res) => setData(res.data));
     }, []);
@@ -34,7 +35,9 @@ function MatchCardBis(props) {
 
         } else {
             alert("Erreur, vous devez être connecter pour rejoindre un match avec votre équipe, deplus une même équipe ne peux s'affronter.")
+
         }
+
     } 
 
     return (
@@ -45,21 +48,20 @@ function MatchCardBis(props) {
                 {data.map((teamName) =>(
                     <TeamNameCard teamName={teamName} key={teamName.id}/>
                 ))}
-
+                
                 <div class="div-match-3">
-                <form onSubmit={handleSubmit(onSubmit)} class="matchbis-form">
-                    <select id="teams" {...register("teamID")}>
-                        {dataTeam.map((teams)=>(
-                            <SelectTeam teams={teams} key={teams.id}/>
-                        ))}
-                    </select>
-                    <button type="submit" class="btn-2"> <span class="iconify-enter" data-icon="fluent:arrow-enter-left-20-regular" data-inline="false"></span> </button>
-                </form>
-                </div>
+                    <form onSubmit={handleSubmit(onSubmit)} class="matchbis-form">
+                        <select id="teams" {...register("teamID")}>
+                            {dataTeam.map((teams)=>(
+                                <SelectTeam teams={teams} key={teams.id}/>
+                            ))}
+                        </select>
+                        <button type="submit" class="btn-2"> <span class="iconify-enter" data-icon="fluent:arrow-enter-left-20-regular" data-inline="false"></span> </button>
+                    </form>
+                    </div>
+
             </div>
         </div>
-        
-        
         
     );
 }
